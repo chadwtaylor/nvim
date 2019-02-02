@@ -13,7 +13,7 @@ call denite#custom#var('grep', 'default_opts',
 " -----------------------------------------------------------------
 
 let s:denite_options = { 'default': {
-  \ 'split': 'verticalh',
+  \ 'split': 'vertical',
   \ 'ignorecase': 1, 
   \ 'vertical_preview': 1, 
   \ }}

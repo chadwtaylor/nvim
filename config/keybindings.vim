@@ -61,9 +61,10 @@ if dein#tap('denite.nvim')
   nnoremap <silent><localleader>f :<C-u>Denite file<CR>
   nnoremap <silent><localleader>fb :<C-u>Denite buffer file<CR>
   nnoremap <silent><localleader>b :<C-u>Denite buffer<CR>
-  nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
+  " nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
 
-  nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
+  " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
+
 endif
 
 " ####################################################################################
