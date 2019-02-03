@@ -34,6 +34,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-rhubarb') " extension to fugitive
     call dein#add('easymotion/vim-easymotion') " motion on speed
     call dein#add('ap/vim-css-color') " preview colors on hex
+    call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
+    call dein#add('Yggdroot/indentLine') " visual indentation guides
 
     " RAILS and RUBY STUFF
     call dein#add('thoughtbot/vim-rspec') " rspec testing
