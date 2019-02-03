@@ -19,18 +19,28 @@ if dein#load_state('~/.cache/dein')
     call dein#add('w0rp/ale')
     call dein#add('scrooloose/nerdtree')
     call dein#add('scrooloose/nerdcommenter')
-    call dein#add('powerline/powerline-fonts')
+    " call dein#add('powerline/powerline-fonts')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('arkwright/vim-whiplash')
     call dein#add('jistr/vim-nerdtree-tabs')
     call dein#add('mhinz/vim-startify')
     call dein#add('thaerkh/vim-workspace')
-    call dein#add('morhetz/gruvbox')
-    call dein#add('gioele/vim-autoswap')
-    call dein#add('junegunn/fzf.vim')
+    call dein#add('morhetz/gruvbox') " theme
+    call dein#add('gioele/vim-autoswap') " automatically delete swp files
+    call dein#add('junegunn/fzf.vim') " fuzzy finder
+    call dein#add('mhinz/vim-signify') " git gutter
+    call dein#add('tpope/vim-fugitive') " git gutter
+    call dein#add('tpope/vim-rhubarb') " extension to fugitive
+    call dein#add('easymotion/vim-easymotion') " motion on speed
+    call dein#add('ap/vim-css-color') " preview colors on hex
 
-    " TO UPDATE, call ,du (or :call dein#update)
+    " RAILS and RUBY STUFF
+    call dein#add('thoughtbot/vim-rspec') " rspec testing
+    call dein#add('majutsushi/tagbar') " class functions
+
+
+    " TO UPDATE, call ,pu (or :call dein#update)
 
     " Add or remove your plugins here:
     " call dein#add('Shougo/neosnippet')
@@ -48,7 +58,7 @@ if dein#load_state('~/.cache/dein')
     " call dein#add('christoomey/vim-tmux-navigator')
     " call dein#add('plasticboy/vim-markdown')
     " call dein#add('jamessan/vim-gnupg')
-    
+
     call dein#add('autozimu/LanguageClient-neovim', {
             \ 'rev': 'next',
             \ 'build': 'bash install.sh',

@@ -39,7 +39,7 @@ nnoremap <leader>_ <C-W><C-J>
 " ####################################################################################
 " DEIN - Plugin Manager
 " ####################################################################################
-nnoremap <leader>du :call dein#update()<CR>
+nnoremap <leader>pu :call dein#update()<CR>
 
 " ####################################################################################
 " DENITE
@@ -51,8 +51,8 @@ if dein#tap('denite.nvim')
   " nnoremap <space>v :Denite file_rec -default-action=split<CR>
 
   " Grep stuff
-  nnoremap <space>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
-  nnoremap <space>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
+  nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
+  nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
   " nnoremap <silent><localleader>g :<C-u>Denite grep -buffer-name=search -no-empty -mode=normal<CR>
   " nnoremap <silent> <Leader>gg :DeniteCursorWord grep -buffer-name=search -no-empty -mode=normal<CR>
 
@@ -64,6 +64,13 @@ if dein#tap('denite.nvim')
   " nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
 
   " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
+
+endif
+
+" ####################################################################################
+" FUGITIVE
+" ####################################################################################
+if dein#tap('vim-fugitive') 
 
 endif
 
@@ -82,4 +89,11 @@ endif
 " ####################################################################################
 if dein#tap('vim-startify') 
   nnoremap <silent> <leader>sy :Startify<CR>
+endif 
+
+" ####################################################################################
+" TAGBAR
+" ####################################################################################
+if dein#tap('tagbar') 
+  nnoremap <silent> <leader>tt :TagbarToggle<CR>
 endif 
