@@ -62,6 +62,15 @@ colorscheme gruvbox
 " colorscheme molokai 
 " colorscheme NeoSolarized
 
+let g:gruvbox_termcolors=16
+
+augroup xxx
+  autocmd!
+  autocmd ColorScheme * highlight Normal ctermbg=none 
+  autocmd ColorScheme * highlight NonText ctermbg=none 
+augroup END
+
+
 " close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -85,3 +94,12 @@ autocmd BufLeave term://* stopinsert
 " markdown settings
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_math = 0
+
+" session management
+let g:session_directory = '~/.nvim/sessions'
+let g:session_autosave = 'yes'
+set sessionoptions-=help
+set sessionoptions-=buffers
+set sessionoptions-=options
+
+

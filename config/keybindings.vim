@@ -22,10 +22,14 @@
 " ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 let mapleader = ","
-let maplocalleader = "-" 
+let maplocalleader = "-"
 
 " Use ; for commands 
 nnoremap ; : 
+
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sl :ListSession
 
 noremap <leader>w :w<CR>
 noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
@@ -35,6 +39,7 @@ nnoremap <leader>< <C-W><C-H>
 nnoremap <leader>> <C-W><C-L> 
 nnoremap <leader>^ <C-W><C-K> 
 nnoremap <leader>_ <C-W><C-J> 
+
 
 " ####################################################################################
 " DEIN - Plugin Manager
@@ -97,3 +102,5 @@ endif
 if dein#tap('tagbar') 
   nnoremap <silent> <leader>tt :TagbarToggle<CR>
 endif 
+
+

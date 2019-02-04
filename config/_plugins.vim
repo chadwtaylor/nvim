@@ -22,7 +22,7 @@ if dein#load_state('~/.cache/dein')
     " call dein#add('powerline/powerline-fonts')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
-    call dein#add('arkwright/vim-whiplash')
+    " call dein#add('arkwright/vim-whiplash')
     call dein#add('jistr/vim-nerdtree-tabs')
     call dein#add('mhinz/vim-startify')
     call dein#add('thaerkh/vim-workspace')
@@ -36,11 +36,12 @@ if dein#load_state('~/.cache/dein')
     call dein#add('ap/vim-css-color') " preview colors on hex
     " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
     call dein#add('Yggdroot/indentLine') " visual indentation guides
+    call dein#add('xolox/vim-session') " session management
+    call dein#add('xolox/vim-misc') " required for vim-session
 
     " RAILS and RUBY STUFF
     call dein#add('thoughtbot/vim-rspec') " rspec testing
     call dein#add('majutsushi/tagbar') " class functions
-
 
     " TO UPDATE, call ,pu (or :call dein#update)
 
