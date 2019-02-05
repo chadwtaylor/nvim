@@ -20,6 +20,7 @@
 " GOOD REFERENCE ON MAPPING : https://code.i-harness.com/en/q/399e75
 "
 " ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+set shell=bash
 
 let mapleader = ","
 let maplocalleader = "-"
@@ -27,24 +28,37 @@ let maplocalleader = "-"
 " Use ; for commands 
 nnoremap ; : 
 
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sl :ListSession
+" Example of custom commands
+" command! OpenChangedFiles :call OpenChangedFiles()
+" nnoremap ,ocf :OpenChangedFiles<CR>
+" command! ws :w<Bar>:so ~/.config/nvim/init.vim<CR>
 
+" MISC STUFF
 noremap <leader>w :w<CR>
 noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
+noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
+noremap <leader>q :qa<CR>
+noremap <silent> <leader><space> :nohlsearch<CR>
 
 " Moving around windows
 nnoremap <leader>< <C-W><C-H> 
+nnoremap <leader>h <C-W><C-H> 
+
 nnoremap <leader>> <C-W><C-L> 
+nnoremap <leader>l <C-W><C-L> 
+
 nnoremap <leader>^ <C-W><C-K> 
+nnoremap <leader>k <C-W><C-K> 
+
 nnoremap <leader>_ <C-W><C-J> 
+nnoremap <leader>j <C-W><C-J> 
 
 
 " ####################################################################################
 " DEIN - Plugin Manager
 " ####################################################################################
 nnoremap <leader>pu :call dein#update()<CR>
+
 
 " ####################################################################################
 " DENITE
@@ -72,12 +86,14 @@ if dein#tap('denite.nvim')
 
 endif
 
+
 " ####################################################################################
 " FUGITIVE
 " ####################################################################################
 if dein#tap('vim-fugitive') 
 
 endif
+
 
 " ####################################################################################
 " NERDTREE
@@ -89,6 +105,17 @@ if dein#tap('nerdtree')
   nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
 endif 
 
+
+" ####################################################################################
+" SESSION
+" ####################################################################################
+if dein#tap('vim-session')
+  nnoremap <localleader>p :OpenSession<CR> 
+  " nnoremap <localleader>ps :SaveSession
+  " nnoremap <localleader>ps :SaveSession
+endif
+
+
 " ####################################################################################
 " STARTIFY
 " ####################################################################################
@@ -96,11 +123,11 @@ if dein#tap('vim-startify')
   nnoremap <silent> <leader>sy :Startify<CR>
 endif 
 
+
 " ####################################################################################
 " TAGBAR
 " ####################################################################################
 if dein#tap('tagbar') 
-  nnoremap <silent> <leader>tt :TagbarToggle<CR>
+  nnoremap <silent> <localleader>t :TagbarToggle<CR>
 endif 
-
 

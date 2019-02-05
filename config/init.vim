@@ -55,24 +55,14 @@ set relativenumber
 set grepprg=rg\ --vimgrep
 
 " Set colors in terminal
-" Solarized, dark, with true color support
 set termguicolors
 set background=dark
 colorscheme gruvbox
 " colorscheme molokai 
 " colorscheme NeoSolarized
 
-let g:gruvbox_termcolors=16
-
-augroup xxx
-  autocmd!
-  autocmd ColorScheme * highlight Normal ctermbg=none 
-  autocmd ColorScheme * highlight NonText ctermbg=none 
-augroup END
-
-
 " close vim if only window left is nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " crontab filetype tweak (the way vim normally saves files confuses crontab
 " so this workaround allows for editing
@@ -99,7 +89,12 @@ let g:vim_markdown_math = 0
 let g:session_directory = '~/.nvim/sessions'
 let g:session_autosave = 'yes'
 set sessionoptions-=help
-set sessionoptions-=buffers
+" set sessionoptions-=buffers
 set sessionoptions-=options
 
-
+" for ES6 transpiling
+augroup MyTerm
+  autocmd!
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  " autocmd BufLeave term://* stopinsert
+augroup END

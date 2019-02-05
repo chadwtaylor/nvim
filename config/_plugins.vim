@@ -10,20 +10,34 @@ if dein#load_state('~/.cache/dein')
 
     call dein#begin('~/.cache/dein')
 
+
+    " Remove disabled plugins
+    " call dein#disable('denite-extra')
+    " call dein#disable('vim-session')
+    " call dein#disable('vim-misc')
+    " call dein#disable('vim-surround')
+    " call dein#disable('vim-polyglot')
+    " call dein#disable('vim-repeat')
+    " call dein#disable('sneak')
+    " call dein#disable('slimux')
+    " call dein#disable('vinegar')
+    " call dein#disable('vim-nerdtree-tabs')
+    " call dein#disable('ranger')
+    " call dein#disable('bclose')
+    " call map(dein#check_clean(), "delete(v:val, 'rf')")
+    " call dein#recache_runtimepath()
+
     " Let dein manage dein
     " Required:
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('Shougo/denite.nvim')
-    call dein#add('neoclide/denite-extra')
-    call dein#add('w0rp/ale')
+    " call dein#add('neoclide/denite-extra')
     call dein#add('scrooloose/nerdtree')
+    call dein#add('w0rp/ale')
     call dein#add('scrooloose/nerdcommenter')
-    " call dein#add('powerline/powerline-fonts')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
-    " call dein#add('arkwright/vim-whiplash')
-    call dein#add('jistr/vim-nerdtree-tabs')
     call dein#add('mhinz/vim-startify')
     call dein#add('thaerkh/vim-workspace')
     call dein#add('morhetz/gruvbox') " theme
@@ -34,10 +48,27 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-rhubarb') " extension to fugitive
     call dein#add('easymotion/vim-easymotion') " motion on speed
     call dein#add('ap/vim-css-color') " preview colors on hex
-    " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
     call dein#add('Yggdroot/indentLine') " visual indentation guides
     call dein#add('xolox/vim-session') " session management
     call dein#add('xolox/vim-misc') " required for vim-session
+    call dein#add('sheerun/vim-polyglot')
+    call dein#add('tpope/vim-surround')
+    call dein#add('tpope/vim-repeat')
+
+    " call dein#add('powerline/powerline-fonts')
+    " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
+    " call dein#add('tpope/vim-vinegar')
+
+    " tmux-inspired stuff but am using this plugin to get the visual selected lines 
+    " and use it into the keybinding command (refer to keybindings.vim for how it's used)
+    " call dein#add('epeli/slimux') 
+
+    " call dein#add('justinmk/sneak') " motion (ewilliam)
+    " mundo " undo app (ewilliam)
+    " supertab " complete (ewilliam)
+    " golden-ratio " window splitter (ewilliam)
+    " rainbow " bracket coloring (ewilliam)
+    " commentary-vim # commenting (ewilliam)
 
     " RAILS and RUBY STUFF
     call dein#add('thoughtbot/vim-rspec') " rspec testing
