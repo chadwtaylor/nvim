@@ -32,12 +32,13 @@ nnoremap ; :
 " nnoremap ,ocf :OpenChangedFiles<CR>
 " command! ws :w<Bar>:so ~/.config/nvim/init.vim<CR>
 
+
 " MISC STUFF
 noremap <leader>w :w<CR>
 noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
 noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
 noremap <leader>q :qa<CR>
-noremap <silent> <leader><localleader> :nohlsearch<CR>
+noremap <silent> <leader><space> :nohlsearch<CR>
 
 " ####################################################################################
 " WINDOW MANAGEMENT
@@ -63,15 +64,31 @@ map _ <C-W>-
 " DBEXT - database stuff
 " ####################################################################################
 if dein#tap('dbext.vim')
+
+  command! Dbc :DBPromptForBufferParameters
+  command! Dbe :DBExecSQLUnderCursor
+  command! Dbe :DBExecVisualSQL
+  command! Dbet :DBSelectFromTable
+  command! Dbd :DBDescribeTable
+  command! Dblt :DBListTable
+  command! Dbtl :DBListTable
+  command! Dblv :DBListView
+  command! Dbvl :DBListView
+  command! Dbx :DBResultsClose
+  command! Dbh :DBHistory
+
   nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
   nnoremap <localleader>dbe :<C-u>DBExecSQLUnderCursor<CR>
   vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
   nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
-  nnoremap <localleader>dbdt :<C-u>DBDescribeTable<CR>
+  nnoremap <localleader>dbd :<C-u>DBDescribeTable<CR>
   nnoremap <localleader>dblt :<C-u>DBListTable<CR>
+  nnoremap <localleader>dbtl :<C-u>DBListTable<CR>
   nnoremap <localleader>dblv :<C-u>DBListView<CR>view_<CR>
+  nnoremap <localleader>dbvl :<C-u>DBListView<CR>view_<CR>
   nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
   nnoremap <localleader>dbh :<C-u>DBHistory<CR>
+
 endif
 
 " ####################################################################################
@@ -105,7 +122,7 @@ endif
 " ####################################################################################
 if dein#tap('vim-fugitive') 
   nnoremap <localleader>ga :Git add %:p<CR><CR>
-  nnoremap <localleader>gs :Gstatus<CR>
+  nnoremap <nowait><localleader>gs :Gstatus<CR>
   nnoremap <localleader>gc :Gcommit -v -q<CR>
   nnoremap <localleader>gt :Gcommit -v -q %:p<CR>
   nnoremap <localleader>gd :Gdiff<CR>
@@ -115,7 +132,7 @@ if dein#tap('vim-fugitive')
   nnoremap <localleader>gl :silent! Glog<CR>:bot copen<CR>
   nnoremap <localleader>gp :Ggrep<Space>
   nnoremap <localleader>gm :Gmove<Space>
-  nnoremap <localleader>gb :Gblame<CR>
+  nnoremap <localleader>gb :Gblame<CR>q
   nnoremap <localleader>gco :Git checkout<Space>
   nnoremap <localleader>gps :Dispatch! git push<CR>
   nnoremap <localleader>gpl :Dispatch! git pull<CR>

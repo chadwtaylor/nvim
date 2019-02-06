@@ -12,6 +12,9 @@ if dein#load_state('~/.cache/dein')
 
 
     " Remove disabled plugins
+    call dein#disable('vim-airline')
+    call dein#disable('vim-airline-themes')
+    " call dein#disable('lightline.vim')
     " call dein#disable('denite-extra')
     " call dein#disable('vim-session')
     " call dein#disable('vim-misc')
@@ -37,8 +40,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('scrooloose/nerdtree') " file management / explorer
     call dein#add('w0rp/ale') " linter
     call dein#add('scrooloose/nerdcommenter') " commeting
-    call dein#add('vim-airline/vim-airline') " status bar
-    call dein#add('vim-airline/vim-airline-themes') " status bar themes
+    " call dein#add('vim-airline/vim-airline') " status bar
+    " call dein#add('vim-airline/vim-airline-themes') " status bar themes
     call dein#add('mhinz/vim-startify') " start screen
     call dein#add('thaerkh/vim-workspace')
     call dein#add('morhetz/gruvbox') " theme
@@ -63,6 +66,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('majutsushi/tagbar') " class functions
     call dein#add('lifepillar/pgsql.vim') " postgresql syntax
     call dein#add('vim-scripts/dbext.vim') " db connection
+    call dein#add('tpope/vim-rails') " rails-powered
+    call dein#add('itchyny/lightline.vim') " status bar
 
     " call dein#add('powerline/powerline-fonts')
     " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
