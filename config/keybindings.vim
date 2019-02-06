@@ -54,7 +54,6 @@ nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>_ <C-W><C-J> " move down
 nnoremap <leader>j <C-W><C-J> 
 
-
 nnoremap <leader>w= <C-W>=
 map + <C-W>+
 map _ <C-W>-
@@ -63,16 +62,17 @@ map _ <C-W>-
 " ####################################################################################
 " DBEXT - database stuff
 " ####################################################################################
-nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
-nnoremap <localleader>dbe :<C-u>DBExecSQLUnderCursor<CR>
-vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
-nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
-nnoremap <localleader>dbdt :<C-u>DBDescribeTable<CR>
-nnoremap <localleader>dblt :<C-u>DBListTable<CR>
-nnoremap <localleader>dblv :<C-u>DBListView<CR>
-nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
-nnoremap <localleader>dbh :<C-u>DBHistory<CR>
-
+if dein#tap('dbext.vim')
+  nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
+  nnoremap <localleader>dbe :<C-u>DBExecSQLUnderCursor<CR>
+  vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
+  nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
+  nnoremap <localleader>dbdt :<C-u>DBDescribeTable<CR>
+  nnoremap <localleader>dblt :<C-u>DBListTable<CR>
+  nnoremap <localleader>dblv :<C-u>DBListView<CR>view_<CR>
+  nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
+  nnoremap <localleader>dbh :<C-u>DBHistory<CR>
+endif
 
 " ####################################################################################
 " DENITE
@@ -121,6 +121,13 @@ if dein#tap('vim-fugitive')
   nnoremap <localleader>gpl :Dispatch! git pull<CR>
 endif
 
+" ####################################################################################
+" JUNKFILE
+" ####################################################################################
+if dein#tap('junkfile.vim') 
+  nnoremap <leader>jf :JunkfileOpen<CR>
+  nnoremap <leader>jfsql :JunkfileOpen<CR>sql<CR>
+endif
 
 " ####################################################################################
 " NERDTREE
