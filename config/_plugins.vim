@@ -24,21 +24,22 @@ if dein#load_state('~/.cache/dein')
     " call dein#disable('vim-nerdtree-tabs')
     " call dein#disable('ranger')
     " call dein#disable('bclose')
+    " call dein#disable('supertab')
     " call map(dein#check_clean(), "delete(v:val, 'rf')")
     " call dein#recache_runtimepath()
 
     " Let dein manage dein
     " Required:
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-    call dein#add('Shougo/deoplete.nvim')
-    call dein#add('Shougo/denite.nvim')
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim') " plugin management
+    call dein#add('Shougo/deoplete.nvim') " completer
+    call dein#add('Shougo/denite.nvim') " file, grep and buffer management
     " call dein#add('neoclide/denite-extra')
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('w0rp/ale')
-    call dein#add('scrooloose/nerdcommenter')
-    call dein#add('vim-airline/vim-airline')
-    call dein#add('vim-airline/vim-airline-themes')
-    call dein#add('mhinz/vim-startify')
+    call dein#add('scrooloose/nerdtree') " file management / explorer
+    call dein#add('w0rp/ale') " linter
+    call dein#add('scrooloose/nerdcommenter') " commeting
+    call dein#add('vim-airline/vim-airline') " status bar
+    call dein#add('vim-airline/vim-airline-themes') " status bar themes
+    call dein#add('mhinz/vim-startify') " start screen
     call dein#add('thaerkh/vim-workspace')
     call dein#add('morhetz/gruvbox') " theme
     call dein#add('gioele/vim-autoswap') " automatically delete swp files
@@ -51,9 +52,16 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Yggdroot/indentLine') " visual indentation guides
     call dein#add('xolox/vim-session') " session management
     call dein#add('xolox/vim-misc') " required for vim-session
-    call dein#add('sheerun/vim-polyglot')
-    call dein#add('tpope/vim-surround')
-    call dein#add('tpope/vim-repeat')
+    call dein#add('sheerun/vim-polyglot') " language
+    call dein#add('tpope/vim-surround') " quick surrounding with quotes or brackets
+    call dein#add('tpope/vim-repeat') " repeat surround commands
+    " call dein#add('ervandew/supertab') " completer
+    call dein#add('Shougo/neosnippet') " snippets
+    call dein#add('Shougo/neosnippet-snippets') " snippets templates
+    call dein#add('joker1007/vim-ruby-heredoc-syntax') " color syntax for ruby between 'x = <<-SQL ... SQL'
+    call dein#add('majutsushi/tagbar') " class functions
+    call dein#add('lifepillar/pgsql.vim') " postgresql syntax
+    call dein#add('vim-scripts/dbext.vim') " db connection
 
     " call dein#add('powerline/powerline-fonts')
     " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
@@ -72,7 +80,6 @@ if dein#load_state('~/.cache/dein')
 
     " RAILS and RUBY STUFF
     call dein#add('thoughtbot/vim-rspec') " rspec testing
-    call dein#add('majutsushi/tagbar') " class functions
 
     " TO UPDATE, call ,pu (or :call dein#update)
 
