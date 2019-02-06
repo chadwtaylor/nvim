@@ -57,19 +57,21 @@ nnoremap <leader>j <C-W><C-J>
 
 nnoremap <leader>w= <C-W>=
 map + <C-W>+
-map - <C-W>-
+map _ <C-W>-
 
 
 " ####################################################################################
 " DBEXT - database stuff
 " ####################################################################################
 nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
-nnoremap <localleader>dbe :<C-u>DBExecRangeSQL<CR>
+nnoremap <localleader>dbe :<C-u>DBExecSQLUnderCursor<CR>
 vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
 nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
 nnoremap <localleader>dbdt :<C-u>DBDescribeTable<CR>
 nnoremap <localleader>dblt :<C-u>DBListTable<CR>
+nnoremap <localleader>dblv :<C-u>DBListView<CR>
 nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
+nnoremap <localleader>dbh :<C-u>DBHistory<CR>
 
 
 " ####################################################################################

@@ -56,6 +56,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-surround') " quick surrounding with quotes or brackets
     call dein#add('tpope/vim-repeat') " repeat surround commands
     " call dein#add('ervandew/supertab') " completer
+    call dein#add('Shougo/junkfile.vim') " snippets
     call dein#add('Shougo/neosnippet') " snippets
     call dein#add('Shougo/neosnippet-snippets') " snippets templates
     call dein#add('joker1007/vim-ruby-heredoc-syntax') " color syntax for ruby between 'x = <<-SQL ... SQL'
