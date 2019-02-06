@@ -2,10 +2,10 @@
 let g:startify_session_dir = '~/.nvim/sessions'
 
 let g:startify_lists = [
-  \ { 'type':'bookmarks',   'header':['   Bookmarks'] },
+  \ { 'type':'sessions',    'header':['   Sessions'] },
   \ { 'type':'files',       'header':['   Files - Most Recent'] },
   \ { 'type':'dir',         'header':['   Files - Most Recent - '. getcwd()] },
-  \ { 'type':'sessions',    'header':['   Sessions'] },
+  \ { 'type':'bookmarks',   'header':['   Bookmarks'] },
   \ ]
 
 let g:startify_bookmarks = [

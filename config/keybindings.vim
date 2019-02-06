@@ -20,7 +20,6 @@
 " GOOD REFERENCE ON MAPPING : https://code.i-harness.com/en/q/399e75
 "
 " ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-set shell=bash
 
 let mapleader = ","
 let maplocalleader = "-"
@@ -79,6 +78,7 @@ if dein#tap('denite.nvim')
   nnoremap <silent><localleader>fr :<C-u>Denite file/rec<CR>
   nnoremap <silent><localleader>f :<C-u>Denite file<CR>
   nnoremap <silent><localleader>fb :<C-u>Denite buffer file<CR>
+  nnoremap <silent><localleader>bf :<C-u>Denite buffer file<CR>
   nnoremap <silent><localleader>b :<C-u>Denite buffer<CR>
   " nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
 
@@ -91,7 +91,21 @@ endif
 " FUGITIVE
 " ####################################################################################
 if dein#tap('vim-fugitive') 
-
+  nnoremap <space>ga :Git add %:p<CR><CR>
+  nnoremap <space>gs :Gstatus<CR>
+  nnoremap <space>gc :Gcommit -v -q<CR>
+  nnoremap <space>gt :Gcommit -v -q %:p<CR>
+  nnoremap <space>gd :Gdiff<CR>
+  nnoremap <space>ge :Gedit<CR>
+  nnoremap <space>gr :Gread<CR>
+  nnoremap <space>gw :Gwrite<CR><CR>
+  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <space>gp :Ggrep<Space>
+  nnoremap <space>gm :Gmove<Space>
+  nnoremap <space>gb :Gblame<CR>
+  nnoremap <space>gco :Git checkout<Space>
+  nnoremap <space>gps :Dispatch! git push<CR>
+  nnoremap <space>gpl :Dispatch! git pull<CR>
 endif
 
 
@@ -111,6 +125,7 @@ endif
 " ####################################################################################
 if dein#tap('vim-session')
   nnoremap <localleader>p :OpenSession<CR> 
+  nnoremap <localleader>u :OpenSession<CR> 
   " nnoremap <localleader>ps :SaveSession
   " nnoremap <localleader>ps :SaveSession
 endif

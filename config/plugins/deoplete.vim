@@ -14,7 +14,7 @@ call deoplete#custom#source('LanguageClient',
             \ 2)
 
 if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
+  let g:deoplete#omni#input_patterns = {}
 endif
 
 " Disable the candidates in Comment/String syntaxes.
