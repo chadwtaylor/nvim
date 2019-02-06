@@ -37,26 +37,39 @@ noremap <leader>w :w<CR>
 noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
 noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
 noremap <leader>q :qa<CR>
-noremap <silent> <leader><space> :nohlsearch<CR>
+noremap <silent> <leader><localleader> :nohlsearch<CR>
 
-" Moving around windows
-nnoremap <leader>< <C-W><C-H> 
+" ####################################################################################
+" WINDOW MANAGEMENT
+" ####################################################################################
+nnoremap <leader>< <C-W><C-H> " move left
 nnoremap <leader>h <C-W><C-H> 
 
-nnoremap <leader>> <C-W><C-L> 
+nnoremap <leader>> <C-W><C-L> " move right
 nnoremap <leader>l <C-W><C-L> 
 
-nnoremap <leader>^ <C-W><C-K> 
+nnoremap <leader>^ <C-W><C-K> " move up
 nnoremap <leader>k <C-W><C-K> 
 
-nnoremap <leader>_ <C-W><C-J> 
+nnoremap <leader>_ <C-W><C-J> " move down
 nnoremap <leader>j <C-W><C-J> 
 
 
+nnoremap <leader>w= <C-W>=
+map + <C-W>+
+map - <C-W>-
+
+
 " ####################################################################################
-" DEIN - Plugin Manager
+" DBEXT - database stuff
 " ####################################################################################
-nnoremap <leader>pu :call dein#update()<CR>
+nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
+nnoremap <localleader>dbe :<C-u>DBExecRangeSQL<CR>
+vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
+nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
+nnoremap <localleader>dbdt :<C-u>DBDescribeTable<CR>
+nnoremap <localleader>dblt :<C-u>DBListTable<CR>
+nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
 
 
 " ####################################################################################
@@ -65,23 +78,21 @@ nnoremap <leader>pu :call dein#update()<CR>
 if dein#tap('denite.nvim') 
 
   nnoremap <leader>d :<C-u>Denite 
+  nnoremap <leader>pu :<C-u>call dein#update()<CR>
 
   " nnoremap <space>v :Denite file_rec -default-action=split<CR>
 
   " Grep stuff
-  nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
-  nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
-  " nnoremap <silent><localleader>g :<C-u>Denite grep -buffer-name=search -no-empty -mode=normal<CR>
-  " nnoremap <silent> <Leader>gg :DeniteCursorWord grep -buffer-name=search -no-empty -mode=normal<CR>
+  nnoremap <localleader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
+  nnoremap <localleader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
-  nnoremap <silent><localleader>r :<C-u>Denite -resume -refresh -mode=normal<CR>
-  nnoremap <silent><localleader>fr :<C-u>Denite file/rec<CR>
-  nnoremap <silent><localleader>f :<C-u>Denite file<CR>
-  nnoremap <silent><localleader>fb :<C-u>Denite buffer file<CR>
-  nnoremap <silent><localleader>bf :<C-u>Denite buffer file<CR>
-  nnoremap <silent><localleader>b :<C-u>Denite buffer<CR>
+  nnoremap <silent><localleader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
+  nnoremap <silent><localleader>sfr :<C-u>Denite file/rec<CR>
+  nnoremap <silent><localleader>sf :<C-u>Denite file<CR>
+  nnoremap <nowait><silent><localleader>sfb :<C-u>Denite buffer file<CR>
+  nnoremap <silent><localleader>sbf :<C-u>Denite buffer file<CR>
+  nnoremap <nowait><silent><localleader>sb :<C-u>Denite buffer<CR>
   " nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
-
   " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
 
 endif
@@ -91,21 +102,21 @@ endif
 " FUGITIVE
 " ####################################################################################
 if dein#tap('vim-fugitive') 
-  nnoremap <space>ga :Git add %:p<CR><CR>
-  nnoremap <space>gs :Gstatus<CR>
-  nnoremap <space>gc :Gcommit -v -q<CR>
-  nnoremap <space>gt :Gcommit -v -q %:p<CR>
-  nnoremap <space>gd :Gdiff<CR>
-  nnoremap <space>ge :Gedit<CR>
-  nnoremap <space>gr :Gread<CR>
-  nnoremap <space>gw :Gwrite<CR><CR>
-  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-  nnoremap <space>gp :Ggrep<Space>
-  nnoremap <space>gm :Gmove<Space>
-  nnoremap <space>gb :Gblame<CR>
-  nnoremap <space>gco :Git checkout<Space>
-  nnoremap <space>gps :Dispatch! git push<CR>
-  nnoremap <space>gpl :Dispatch! git pull<CR>
+  nnoremap <localleader>ga :Git add %:p<CR><CR>
+  nnoremap <localleader>gs :Gstatus<CR>
+  nnoremap <localleader>gc :Gcommit -v -q<CR>
+  nnoremap <localleader>gt :Gcommit -v -q %:p<CR>
+  nnoremap <localleader>gd :Gdiff<CR>
+  nnoremap <localleader>ge :Gedit<CR>
+  nnoremap <localleader>gr :Gread<CR>
+  nnoremap <localleader>gw :Gwrite<CR><CR>
+  nnoremap <localleader>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <localleader>gp :Ggrep<Space>
+  nnoremap <localleader>gm :Gmove<Space>
+  nnoremap <localleader>gb :Gblame<CR>
+  nnoremap <localleader>gco :Git checkout<Space>
+  nnoremap <localleader>gps :Dispatch! git push<CR>
+  nnoremap <localleader>gpl :Dispatch! git pull<CR>
 endif
 
 

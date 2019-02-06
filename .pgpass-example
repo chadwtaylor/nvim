@@ -1,0 +1,8 @@
+/* REQUIRED FORMATTING */
+/* host:port:dbname:username:password */
+
+/* DB ONE */
+localhost:5432:awesome_db_name:your_crazy_username_from_the_1990s:your_easy_to_remember_password
+
+/* DB TWO */
+ec2-xx-xx-xx-xx.compute.amazonaws.com:5432:awesome_db_name:your_crazy_username_from_the_1990s:your_easy_to_remember_password
