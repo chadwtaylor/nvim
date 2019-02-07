@@ -126,22 +126,32 @@ endif
 " FUGITIVE
 " ####################################################################################
 if dein#tap('vim-fugitive') 
-  nnoremap <localleader>ga :Git add %:p<CR><CR>
-  nnoremap <nowait><localleader>gs :Gstatus<CR>
-  nnoremap <localleader>gc :Gcommit -v -q<CR>
-  nnoremap <localleader>gt :Gcommit -v -q %:p<CR>
-  nnoremap <localleader>gd :Gdiff<CR>
-  nnoremap <localleader>ge :Gedit<CR>
-  nnoremap <localleader>gr :Gread<CR>
-  nnoremap <localleader>gw :Gwrite<CR><CR>
-  nnoremap <localleader>gl :silent! Glog<CR>:bot copen<CR>
-  nnoremap <localleader>gp :Ggrep<Space>
-  nnoremap <localleader>gm :Gmove<Space>
-  nnoremap <localleader>gb :Gblame<CR>q
-  nnoremap <localleader>gco :Git checkout<Space>
-  nnoremap <localleader>gps :Dispatch! git push<CR>
-  nnoremap <localleader>gpl :Dispatch! git pull<CR>
+  " nnoremap <localleader>ga :Git add %:p<CR><CR>
+  " nnoremap <nowait><localleader>gs :Gstatus<CR>
+  " nnoremap <localleader>gc :Gcommit -v -q<CR>
+  " nnoremap <localleader>gt :Gcommit -v -q %:p<CR>
+  " nnoremap <localleader>gd :Gdiff<CR>
+  " nnoremap <localleader>ge :Gedit<CR>
+  " nnoremap <localleader>gr :Gread<CR>
+  " nnoremap <localleader>gw :Gwrite<CR><CR>
+  " nnoremap <localleader>gl :silent! Glog<CR>:bot copen<CR>
+  " nnoremap <localleader>gp :Ggrep<Space>
+  " nnoremap <localleader>gm :Gmove<Space>
+  " nnoremap <localleader>gb :Gblame<CR>q
+  " nnoremap <localleader>gco :Git checkout<Space>
+  " nnoremap <localleader>gps :Dispatch! git push<CR>
+  " nnoremap <localleader>gpl :Dispatch! git pull<CR>
 endif
+
+" ####################################################################################
+" FUGITIVE
+" ####################################################################################
+if dein#tap('gina.vim') 
+  nnoremap <localleader>gs :Gina status<CR>
+  nnoremap <localleader>gc :Gina commit<CR>
+  nnoremap <localleader>gph :Gina push<CR>
+endif
+
 
 " ####################################################################################
 " JUNKFILE
