@@ -150,6 +150,7 @@ endif
 " GINA
 " ####################################################################################
 if dein#tap('gina.vim') 
+  nnoremap <localleader>ga :Gina add %:p<CR>
   nnoremap <nowait><localleader>gs :Gina status<CR>
   nnoremap <localleader>gc :Gina commit -q -v<CR>
   nnoremap <localleader>gph :Gina push<CR>

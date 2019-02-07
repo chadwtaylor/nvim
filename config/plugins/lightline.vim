@@ -6,7 +6,7 @@ if dein#tap('lightline.vim')
     \    'active': {
     \      'left': [ 
     \           [ 'mode', 'paste' ],
-    \           [ 'ginabranch', 'ginastatus', 'readonly', 'filename', 'modified' ],
+    \           [ 'gitbranch', 'githealth', 'readonly', 'filename', 'modified' ],
     \           ['tagbar']
     \         ],
     \   },
@@ -14,8 +14,8 @@ if dein#tap('lightline.vim')
     \     'tagbar': '%{tagbar#currenttag("%s","","f")}',
     \   },
     \   'component_function': {
-    \     'ginabranch': 'MyGinaBranch',
-    \     'ginastatus': 'MyGinaStatus',
+    \     'gitbranch': 'MyGinaBranch',
+    \     'githealth': 'MyGinaHealth',
     \   },
     \ }
 
@@ -24,27 +24,46 @@ if dein#tap('lightline.vim')
     return branch
   endfunction
 
-  function! MyGinaStatus() 
+  function! MyGinaHealth()
+    let mods = MySignify()
+    let status = MyGinaStatus()
+    let traffic = gina#component#traffic#preset('fancy')
+    let items = [mods, status, traffic]
+    let summary = ''
 
-    " let status = gina#component#status#preset('fancy') 
+    for i in range(3)
+      if !empty(items[i])
+        let summary .= printf('%s ', items[i])
+      endif
+    endfor
+
+    if !empty(summary)
+      let summary = printf('%s', summary[:-2])
+    endif
+
+    return summary
+  endfunction
+
+  function! MyGinaStatus() 
     let symbols = ['s','u','x']
     let staged = gina#component#status#staged()
     let unstaged = gina#component#status#unstaged()
     let conflicted = gina#component#status#conflicted()
     let statuses = [staged, unstaged, conflicted]
-    let status = '' " printf('s%s u%s x%s', staged, unstaged, conflicted)
+    let status = '' 
 
     for i in range(3)
-      if statuses[i] > 0
-        let status .= printf('%s%s', symbols[i], statuses[i])
+      if statuses[i] > 1
+        let status .= printf('%s%s ', symbols[i], statuses[i])
       endif
     endfor
 
-    let traffic = gina#component#traffic#preset('fancy')
+    if !empty(status)
+      let status = printf('%s', status[:-2])
+    endif
 
-    let modifications = MySignify()
-
-    return modifications . ' ' . status . ' ' . traffic
+    " let status = gina#component#status#preset('fancy') 
+    return status
   endfunction
 
   function! MySignify()
