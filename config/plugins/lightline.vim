@@ -19,19 +19,6 @@ if dein#tap('lightline.vim')
     \   },
     \ }
 
-    " \      'right': [ 
-    " \           [ 'lineinfo' ], [ 'percent' ],
-    " \           [ 'fileformat', 'fileencoding', 'filetype' ],
-    " \         ],
-
-    " \     'readonly': 'MyReadonly',
-    " \     'filename': 'MyFilename',
-    " \     'modified': 'MyModified',
-    " \     'fileformat': 'MyFileformat',
-    " \     'fileencoding': 'MyFileencoding',
-    " \     'mode': 'MyMode',
-    " \     'filetype': 'MyFiletype',
-
   function! MyGinaBranch()
     let branch = gina#component#repo#branch()
     return branch
@@ -63,6 +50,23 @@ if dein#tap('lightline.vim')
     return hunkline
   endfunction
 
+  " ---------------------------------------------------------------------------------------------------------------------------------------
+  "  Below is reference stuff, mostly courtesy of ewilliam :)
+  " ---------------------------------------------------------------------------------------------------------------------------------------
+  
+  " \      'right': [ 
+  " \           [ 'lineinfo' ], [ 'percent' ],
+  " \           [ 'fileformat', 'fileencoding', 'filetype' ],
+  " \         ],
+
+  " \     'readonly': 'MyReadonly',
+  " \     'filename': 'MyFilename',
+  " \     'modified': 'MyModified',
+  " \     'fileformat': 'MyFileformat',
+  " \     'fileencoding': 'MyFileencoding',
+  " \     'mode': 'MyMode',
+  " \     'filetype': 'MyFiletype',
+  
   " function! MyFugitive()
   "   try
   "     if expand('%:t') !~? 'Mundo\|Tagbar' && &ft != "denite" && exists('*fugitive#head')
