@@ -22,14 +22,14 @@ if dein#tap('lightline.vim')
   function! MyGinaBranch()
     let branch = gina#component#repo#branch()
     return branch
-	endfunction
+  endfunction
 
   function! MyGinaStatus() 
     let status = gina#component#status#preset('fancy') 
     let traffic = gina#component#traffic#preset('fancy')
     let modifications = MySignify()
     return modifications . ' ' . status . ' ' . traffic
-	endfunction
+  endfunction
 
   function! MySignify()
     let symbols = ['+', '-', '~']

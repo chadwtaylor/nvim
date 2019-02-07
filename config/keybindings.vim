@@ -59,6 +59,7 @@ nnoremap <leader>w= <C-W>=
 map + <C-W>+
 map _ <C-W>-
 
+
 " #################################################################################### 
 " NETRW - file explorer
 " ####################################################################################
@@ -95,6 +96,7 @@ if dein#tap('dbext.vim')
   nnoremap <localleader>dbh :<C-u>DBHistory<CR>
 
 endif
+
 
 " ####################################################################################
 " DENITE
@@ -149,6 +151,9 @@ endif
 " ####################################################################################
 if dein#tap('gina.vim') 
   nnoremap <nowait><localleader>gs :Gina status<CR>
+  nnoremap <localleader>gc :Gina commit<CR>
+  nnoremap <localleader>gph :Gina push<CR>
+  nnoremap <localleader>gb :Gina blame --opener=tabedit<CR>
 endif
 
 
@@ -160,6 +165,7 @@ if dein#tap('junkfile.vim')
   nnoremap <leader>jfsql :JunkfileOpen<CR>sql<CR>
 endif
 
+
 " ####################################################################################
 " NERDTREE
 " ####################################################################################
@@ -169,6 +175,7 @@ if dein#tap('nerdtree')
   " nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
   " nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
 endif 
+
 
 " ####################################################################################
 " SESSION
