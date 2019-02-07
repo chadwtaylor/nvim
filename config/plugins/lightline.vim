@@ -25,9 +25,25 @@ if dein#tap('lightline.vim')
   endfunction
 
   function! MyGinaStatus() 
-    let status = gina#component#status#preset('fancy') 
+
+    " let status = gina#component#status#preset('fancy') 
+    let symbols = ['s','u','x']
+    let staged = gina#component#status#staged()
+    let unstaged = gina#component#status#unstaged()
+    let conflicted = gina#component#status#conflicted()
+    let statuses = [staged, unstaged, conflicted]
+    let status = '' " printf('s%s u%s x%s', staged, unstaged, conflicted)
+
+    for i in range(3)
+      if statuses[i] > 0
+        let status .= printf('%s%s', symbols[i], statuses[i])
+      endif
+    endfor
+
     let traffic = gina#component#traffic#preset('fancy')
+
     let modifications = MySignify()
+
     return modifications . ' ' . status . ' ' . traffic
   endfunction
 
