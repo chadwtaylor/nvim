@@ -12,9 +12,9 @@ if dein#load_state('~/.cache/dein')
 
 
     " Remove disabled plugins
-    call dein#disable('vim-airline')
-    call dein#disable('vim-airline-themes')
-    " call dein#disable('lightline.vim')
+    " call dein#disable('vim-airline')
+    " call dein#disable('vim-airline-themes')
+    " call dein#disable('nerdtree')
     " call dein#disable('denite-extra')
     " call dein#disable('vim-session')
     " call dein#disable('vim-misc')
@@ -31,13 +31,13 @@ if dein#load_state('~/.cache/dein')
     " call map(dein#check_clean(), "delete(v:val, 'rf')")
     " call dein#recache_runtimepath()
 
-    " Let dein manage dein
-    " Required:
+    " 
+    
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim') " plugin management
     call dein#add('Shougo/deoplete.nvim') " completer
     call dein#add('Shougo/denite.nvim') " file, grep and buffer management
     " call dein#add('neoclide/denite-extra')
-    call dein#add('scrooloose/nerdtree') " file management / explorer
+    " call dein#add('scrooloose/nerdtree') " file management / explorer
     call dein#add('w0rp/ale') " linter
     call dein#add('scrooloose/nerdcommenter') " commeting
     " call dein#add('vim-airline/vim-airline') " status bar
@@ -68,6 +68,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('vim-scripts/dbext.vim') " db connection
     call dein#add('tpope/vim-rails') " rails-powered
     call dein#add('itchyny/lightline.vim') " status bar
+    call dein#add('tpope/vim-endwise') " adding end stuff to blocks
+    call dein#add('tpope/vim-endwise') " adding end stuff to blocks
+    call dein#add('lambdalisue/gina.vim') " git
 
     " call dein#add('powerline/powerline-fonts')
     " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides

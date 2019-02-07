@@ -59,6 +59,11 @@ nnoremap <leader>w= <C-W>=
 map + <C-W>+
 map _ <C-W>-
 
+" #################################################################################### 
+" NETRW - file explorer
+" ####################################################################################
+nnoremap <localleader>e :<C-u>Lex<CR>
+
 
 " ####################################################################################
 " DBEXT - database stuff
@@ -150,12 +155,11 @@ endif
 " NERDTREE
 " ####################################################################################
 if dein#tap('nerdtree') 
-  nnoremap <silent> <localleader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
-  nnoremap <silent> <localleader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
-  nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
-  nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
+  " nnoremap <silent> <localleader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
+  " nnoremap <silent> <localleader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
+  " nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
+  " nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
 endif 
-
 
 " ####################################################################################
 " SESSION
