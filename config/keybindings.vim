@@ -151,7 +151,7 @@ endif
 " ####################################################################################
 if dein#tap('gina.vim') 
   nnoremap <nowait><localleader>gs :Gina status<CR>
-  nnoremap <localleader>gc :Gina commit<CR>
+  nnoremap <localleader>gc :Gina commit -q -v<CR>
   nnoremap <localleader>gph :Gina push<CR>
   nnoremap <localleader>gb :Gina blame --opener=tabedit<CR>
 endif
