@@ -143,13 +143,12 @@ if dein#tap('vim-fugitive')
   " nnoremap <localleader>gpl :Dispatch! git pull<CR>
 endif
 
+
 " ####################################################################################
-" FUGITIVE
+" GINA
 " ####################################################################################
 if dein#tap('gina.vim') 
-  nnoremap <localleader>gs :Gina status<CR>
-  nnoremap <localleader>gc :Gina commit<CR>
-  nnoremap <localleader>gph :Gina push<CR>
+  nnoremap <nowait><localleader>gs :Gina status<CR>
 endif
 
 
