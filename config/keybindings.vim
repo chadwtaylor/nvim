@@ -154,6 +154,7 @@ if dein#tap('gina.vim')
   nnoremap <localleader>gc :Gina commit -q -v<CR>
   nnoremap <localleader>gph :Gina push<CR>
   nnoremap <localleader>gb :Gina blame --opener=tabedit<CR>
+  nnoremap <localleader>gbr :Gina branch -a --opener=split<CR>
 endif
 
 
