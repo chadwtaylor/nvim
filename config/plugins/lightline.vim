@@ -2,19 +2,6 @@ if dein#tap('lightline.vim')
 
   set noshowmode
 
-  " let g:lightline = {
-  "     \   'active': {
-  "     \     'left': [ ['mode','paste'], ['git','readonly','filename','modified'],['tagbar'] ],
-  "     \   },
-  "     \   'component': {
-  "     \     'tagbar': '%{tagbar#currenttag("%s","","f")}',
-  "     \   },
-  "     \   'component_function': {
-  "     \     'git': 'CustomGit',
-  "     \   },
-  "     \ }
-  "     " \     'gitbranch': 'fugitive#head',
-  "
   let g:lightline = {
     \    'active': {
     \      'left': [ 
@@ -76,56 +63,56 @@ if dein#tap('lightline.vim')
     return hunkline
   endfunction
 
-  function! MyFugitive()
-    try
-      if expand('%:t') !~? 'Mundo\|Tagbar' && &ft != "denite" && exists('*fugitive#head')
-        " let mark = "\ue0a0 "
-        let mark = ''
-        let branch = fugitive#head()
-        return branch !=# '' ? mark.branch : ''
-      endif
-    catch
-    endtry
-    return ''
-  endfunction
+  " function! MyFugitive()
+  "   try
+  "     if expand('%:t') !~? 'Mundo\|Tagbar' && &ft != "denite" && exists('*fugitive#head')
+  "       " let mark = "\ue0a0 "
+  "       let mark = ''
+  "       let branch = fugitive#head()
+  "       return branch !=# '' ? mark.branch : ''
+  "     endif
+  "   catch
+  "   endtry
+  "   return ''
+  " endfunction
 
-  function! MyReadonly()
-    return &ft !~? 'help' && &readonly ? "[LOCK]" : ''
-  endfunction
+  " function! MyReadonly()
+  "   return &ft !~? 'help' && &readonly ? "[LOCK]" : ''
+  " endfunction
 
-  function! MyModified()
-    return &ft =~ 'help\|gitcommit' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-  endfunction
+  " function! MyModified()
+  "   return &ft =~ 'help\|gitcommit' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  " endfunction
 
-  function! MyFilename()
-    let fname = expand('%:t')
-    return fname == '__Tagbar__' ? g:lightline.fname :
-          \ fname =~ '__Mundo' ? '' :
-          \ &ft == 'gitcommit' ? "" :
-          \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-          \ ('' != fname ? fname : '[No Name]') .
-          \ ('' != MyModified() ? ' ' . MyModified() : '')
-  endfunction
+  " function! MyFilename()
+  "   let fname = expand('%:t')
+  "   return fname == '__Tagbar__' ? g:lightline.fname :
+  "         \ fname =~ '__Mundo' ? '' :
+  "         \ &ft == 'gitcommit' ? "" :
+  "         \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+  "         \ ('' != fname ? fname : '[No Name]') .
+  "         \ ('' != MyModified() ? ' ' . MyModified() : '')
+  " endfunction
 
-  function! MyMode()
-    let fname = expand('%:t')
-    return fname == '__Tagbar__' ? 'Tagbar' :
-          \ fname == '__Mundo__' ? 'Mundo' :
-          \ fname == '__Mundo_Preview__' ? 'Mundo Preview' :
-          \ &ft == 'denite' ? 'Denite' :
-          \ winwidth(0) > 60 ? lightline#mode() : ''
-  endfunction
+  " function! MyMode()
+  "   let fname = expand('%:t')
+  "   return fname == '__Tagbar__' ? 'Tagbar' :
+  "         \ fname == '__Mundo__' ? 'Mundo' :
+  "         \ fname == '__Mundo_Preview__' ? 'Mundo Preview' :
+  "         \ &ft == 'denite' ? 'Denite' :
+  "         \ winwidth(0) > 60 ? lightline#mode() : ''
+  " endfunction
 
-  function! MyFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
-  endfunction
+  " function! MyFileformat()
+  "   return winwidth(0) > 70 ? &fileformat : ''
+  " endfunction
 
-  function! MyFiletype()
-    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-  endfunction
+  " function! MyFiletype()
+  "   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  " endfunction
 
-  function! MyFileencoding()
-    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-  endfunction
+  " function! MyFileencoding()
+  "   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  " endfunction
 
 endif
