@@ -68,6 +68,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('vim-scripts/dbext.vim') " db connection
     call dein#add('tpope/vim-rails') " rails-powered
     call dein#add('itchyny/lightline.vim') " status bar
+    call dein#add('maximbaz/lightline-ale') " linter stuff for lightline
     call dein#add('tpope/vim-endwise') " adding end stuff to blocks
     call dein#add('tpope/vim-endwise') " adding end stuff to blocks
     call dein#add('lambdalisue/gina.vim') " git
