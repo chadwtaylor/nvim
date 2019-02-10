@@ -6,21 +6,47 @@ if dein#tap('lightline.vim')
     \    'active': {
     \      'left': [ 
     \           [ 'mode', 'paste' ],
-    \           [ 'gitbranch', 'githealth', 'readonly', 'filename', 'modified' ],
-    \           ['tagbar']
+    \           [ 'readonly', 'filename', 'modified' ],
+    \           ['tagbar'],
+    \         ],
+    \      'right': [ 
+    \           [ ],
+    \           [ 'githealth', 'gitbranch'],
+    \           [ 'linter_checking', 'linter_errors', 'linter_warnings', 'liter_ok' ],
+    \         ],
+    \   },
+    \    'inactive': {
+    \      'right': [ 
+    \           [ 'githealth', 'gitbranch'],
     \         ],
     \   },
     \   'component': {
-    \     'tagbar': '%{tagbar#currenttag("%s","","f")}',
+    \     'tagbar': '%{tagbar#currenttag("%s","")}',
     \   },
     \   'component_function': {
     \     'gitbranch': 'MyGinaBranch',
     \     'githealth': 'MyGinaHealth',
+    \     'linter': 'MyALEStatus',
+    \   },
+    \   'component_expand': {
+    \     'linter_checking': 'MyALEChecking',
+    \     'linter_warnings': 'MyALEWarnings',
+    \     'linter_errors': 'MyALEErrors',
+    \     'linter_ok': 'MyALEOk',
+    \   },
+    \   'component_type': {
+    \     'linter_checking': 'left',
+    \     'linter_warnings': 'warning',
+    \     'linter_errors': 'error',
+    \     'linter_ok': 'left',
     \   },
     \ }
 
   function! MyGinaBranch()
-    let branch = gina#component#repo#branch()
+    let branch = '' 
+    let branch .= gina#component#repo#name()
+    let branch .= '/'
+    let branch .= gina#component#repo#branch()
     return branch
   endfunction
 
@@ -83,6 +109,51 @@ if dein#tap('lightline.vim')
     endif
 
     return hunkline
+  endfunction
+
+  " --------------------------------------------------------------------------------------------------------
+  "  ALE Indicators
+  " --------------------------------------------------------------------------------------------------------
+  let s:indicator_warnings = get(g:, 'MyALEWarnings', 'W:')
+  let s:indicator_errors = get(g:, 'MyALEErrors', 'E:')
+  let s:indicator_ok = get(g:, 'MyALEOk', 'OK')
+  let s:indicator_checking = get(g:, 'MyALEChecking', 'Linting...')
+
+  function! MyALEWarnings() abort
+    if !MyALELinted()
+      return ''
+    endif
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_non_errors == 0 ? '' : printf(s:indicator_warnings . '%d', all_non_errors)
+  endfunction
+
+  function! MyALEErrors() abort
+    if !MyALELinted()
+      return ''
+    endif
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    return l:all_errors == 0 ? '' : printf(s:indicator_errors . '%d', all_errors)
+  endfunction
+
+  function! MyALEOk() abort
+    if !MyALELinted()
+      return ''
+    endif
+    let l:counts = ale#statusline#Count(bufnr(''))
+    return l:counts.total == 0 ? s:indicator_ok : ''
+  endfunction
+
+  function! MyALEChecking() abort
+    return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
+  endfunction
+
+  function! MyALELinted() abort
+    return get(g:, 'ale_enabled', 0) == 1
+      \ && getbufvar(bufnr(''), 'ale_linted', 0) > 0
+      \ && ale#engine#IsCheckingBuffer(bufnr('')) == 0
   endfunction
 
   " ---------------------------------------------------------------------------------------------------------------------------------------
