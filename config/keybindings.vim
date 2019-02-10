@@ -84,12 +84,13 @@ if dein#tap('dbext.vim')
   command! Dbh :DBHistory
 
   nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
-  nnoremap <localleader>dbe :<C-u>DBExecSQLUnderCursor<CR>
-  vnoremap <localleader>dbe :<C-u>DBExecVisualSQL<CR>
+  vnoremap <localleader>r :<C-u>DBExecVisualSQL<CR>
+  nnoremap <localleader>r :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
   nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
   nnoremap <localleader>dbd :<C-u>DBDescribeTable<CR>
+  nnoremap <localleader>dbda :<C-u>DBDescribeTableAskName<CR>
   nnoremap <localleader>dblt :<C-u>DBListTable<CR>
-  nnoremap <localleader>dbtl :<C-u>DBListTable<CR>
+  noremap <localleader>dbtl :<C-u>DBListTable<CR>
   nnoremap <localleader>dblv :<C-u>DBListView<CR>view_<CR>
   nnoremap <localleader>dbvl :<C-u>DBListView<CR>view_<CR>
   nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
@@ -153,8 +154,9 @@ if dein#tap('gina.vim')
   nnoremap <localleader>ga :Gina add %:p<CR>
   nnoremap <nowait><localleader>gs :Gina status<CR>
   nnoremap <localleader>gc :Gina commit -q -v<CR>
+  nnoremap <localleader>gco :Gina checkout<SPACE>
   nnoremap <localleader>gph :Gina push<CR>
-  nnoremap <localleader>gb :Gina blame --opener=tabedit<CR>
+  nnoremap <localleader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
   nnoremap <localleader>gbr :Gina branch -a --opener=split<CR>
 endif
 
@@ -172,10 +174,10 @@ endif
 " NERDTREE
 " ####################################################################################
 if dein#tap('nerdtree') 
-  " nnoremap <silent> <localleader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
-  " nnoremap <silent> <localleader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
-  " nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
-  " nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
+  nnoremap <silent> <localleader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
+  nnoremap <silent> <localleader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
+  nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
+  nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
 endif 
 
 
