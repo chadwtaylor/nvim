@@ -79,7 +79,7 @@ if dein#tap('lightline.vim')
     let status = '' 
 
     for i in range(3)
-      if statuses[i] > 1
+      if !empty(statuses[i])
         let status .= printf('%s%s ', symbols[i], statuses[i])
       endif
     endfor
@@ -89,6 +89,7 @@ if dein#tap('lightline.vim')
     endif
 
     " let status = gina#component#status#preset('fancy') 
+    " return 'showGinaStatus'
     return status
   endfunction
 
