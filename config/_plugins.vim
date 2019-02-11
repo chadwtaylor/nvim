@@ -21,7 +21,6 @@ if dein#load_state('~/.cache/dein')
     " call dein#disable('vim-surround')
     " call dein#disable('vim-polyglot')
     " call dein#disable('vim-repeat')
-    " call dein#disable('sneak')
     " call dein#disable('slimux')
     " call dein#disable('vinegar')
     " call dein#disable('vim-nerdtree-tabs')
@@ -37,7 +36,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/deoplete.nvim') " completer
     call dein#add('Shougo/denite.nvim') " file, grep and buffer management
     " call dein#add('neoclide/denite-extra')
-    " call dein#add('scrooloose/nerdtree') " file management / explorer
+    call dein#add('scrooloose/nerdtree') " file management / explorer
     call dein#add('w0rp/ale') " linter
     call dein#add('scrooloose/nerdcommenter') " commeting
     " call dein#add('vim-airline/vim-airline') " status bar
@@ -81,7 +80,7 @@ if dein#load_state('~/.cache/dein')
     " and use it into the keybinding command (refer to keybindings.vim for how it's used)
     " call dein#add('epeli/slimux') 
 
-    " call dein#add('justinmk/sneak') " motion (ewilliam)
+    " call dein#add('justinmk/vim-sneak') " motion (ewilliam)
     " mundo " undo app (ewilliam)
     " supertab " complete (ewilliam)
     " golden-ratio " window splitter (ewilliam)

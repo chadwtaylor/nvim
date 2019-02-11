@@ -117,7 +117,7 @@ if dein#tap('lightline.vim')
   let s:indicator_warnings = get(g:, 'MyALEWarnings', 'W:')
   let s:indicator_errors = get(g:, 'MyALEErrors', 'E:')
   let s:indicator_ok = get(g:, 'MyALEOk', 'OK')
-  let s:indicator_checking = get(g:, 'MyALEChecking', 'Linting...')
+  let s:indicator_checking = get(g:, 'MyALEChecking', '...')
 
   function! MyALEWarnings() abort
     if !MyALELinted()

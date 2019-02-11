@@ -60,12 +60,6 @@ map + <C-W>+
 map _ <C-W>-
 
 
-" #################################################################################### 
-" NETRW - file explorer
-" ####################################################################################
-nnoremap <localleader>e :<C-u>Lex<CR>
-
-
 " ####################################################################################
 " DBEXT - database stuff
 " ####################################################################################
@@ -83,18 +77,18 @@ if dein#tap('dbext.vim')
   command! Dbx :DBResultsClose
   command! Dbh :DBHistory
 
-  nnoremap <localleader>dbc :<C-u>DBPromptForBufferParameters<CR>
-  vnoremap <localleader>r :<C-u>DBExecVisualSQL<CR>
-  nnoremap <localleader>r :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
-  nnoremap <localleader>dbet :<C-u>DBSelectFromTable<CR>
-  nnoremap <localleader>dbd :<C-u>DBDescribeTable<CR>
-  nnoremap <localleader>dbda :<C-u>DBDescribeTableAskName<CR>
-  nnoremap <localleader>dblt :<C-u>DBListTable<CR>
-  noremap <localleader>dbtl :<C-u>DBListTable<CR>
-  nnoremap <localleader>dblv :<C-u>DBListView<CR>view_<CR>
-  nnoremap <localleader>dbvl :<C-u>DBListView<CR>view_<CR>
-  nnoremap <localleader>dbx :<C-u>DBResultsClose<CR>
-  nnoremap <localleader>dbh :<C-u>DBHistory<CR>
+  nnoremap <leader>dbc :<C-u>DBPromptForBufferParameters<CR>
+  vnoremap <leader>r :<C-u>DBExecVisualSQL<CR>
+  nnoremap <leader>r :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
+  nnoremap <leader>dbet :<C-u>DBSelectFromTable<CR>
+  nnoremap <leader>dbd :<C-u>DBDescribeTable<CR>
+  nnoremap <leader>dbda :<C-u>DBDescribeTableAskName<CR>
+  nnoremap <leader>dblt :<C-u>DBListTable<CR>
+  nnoremap <leader>dbtl :<C-u>DBListTable<CR>
+  nnoremap <leader>dblv :<C-u>DBListView<CR>view_<CR>
+  nnoremap <leader>dbvl :<C-u>DBListView<CR>view_<CR>
+  nnoremap <leader>dbx :<C-u>DBResultsClose<CR>
+  nnoremap <leader>dbh :<C-u>DBHistory<CR>
 
 endif
 
@@ -104,22 +98,21 @@ endif
 " ####################################################################################
 if dein#tap('denite.nvim') 
 
-  nnoremap <leader>d :<C-u>Denite 
   nnoremap <leader>pu :<C-u>call dein#update()<CR>
 
   " nnoremap <space>v :Denite file_rec -default-action=split<CR>
 
   " Grep stuff
-  nnoremap <localleader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
-  nnoremap <localleader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
+  nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
+  nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
-  nnoremap <silent><localleader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
-  nnoremap <silent><localleader>sfr :<C-u>Denite file/rec<CR>
-  nnoremap <silent><localleader>sf :<C-u>Denite file<CR>
-  nnoremap <nowait><silent><localleader>sfb :<C-u>Denite buffer file<CR>
-  nnoremap <silent><localleader>sbf :<C-u>Denite buffer file<CR>
-  nnoremap <nowait><silent><localleader>sb :<C-u>Denite buffer<CR>
-  " nnoremap <silent><localleader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
+  nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
+  nnoremap <silent><leader>sfr :<C-u>Denite file/rec<CR>
+  nnoremap <silent><leader>sf :<C-u>Denite file<CR>
+  nnoremap <nowait><silent><leader>sfb :<C-u>Denite buffer file<CR>
+  nnoremap <silent><leader>sbf :<C-u>Denite buffer file<CR>
+  nnoremap <nowait><silent><leader>sb :<C-u>Denite buffer<CR>
+  " nnoremap <silent><leader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
   " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
 
 endif
@@ -129,21 +122,21 @@ endif
 " FUGITIVE
 " ####################################################################################
 if dein#tap('vim-fugitive') 
-  " nnoremap <localleader>ga :Git add %:p<CR><CR>
-  " nnoremap <nowait><localleader>gs :Gstatus<CR>
-  " nnoremap <localleader>gc :Gcommit -v -q<CR>
-  " nnoremap <localleader>gt :Gcommit -v -q %:p<CR>
-  " nnoremap <localleader>gd :Gdiff<CR>
-  " nnoremap <localleader>ge :Gedit<CR>
-  " nnoremap <localleader>gr :Gread<CR>
-  " nnoremap <localleader>gw :Gwrite<CR><CR>
-  " nnoremap <localleader>gl :silent! Glog<CR>:bot copen<CR>
-  " nnoremap <localleader>gp :Ggrep<Space>
-  " nnoremap <localleader>gm :Gmove<Space>
-  " nnoremap <localleader>gb :Gblame<CR>q
-  " nnoremap <localleader>gco :Git checkout<Space>
-  " nnoremap <localleader>gps :Dispatch! git push<CR>
-  " nnoremap <localleader>gpl :Dispatch! git pull<CR>
+  " nnoremap <leader>ga :Git add %:p<CR><CR>
+  " nnoremap <nowait><leader>gs :Gstatus<CR>
+  " nnoremap <leader>gc :Gcommit -v -q<CR>
+  " nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+  " nnoremap <leader>gd :Gdiff<CR>
+  " nnoremap <leader>ge :Gedit<CR>
+  " nnoremap <leader>gr :Gread<CR>
+  " nnoremap <leader>gw :Gwrite<CR><CR>
+  " nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+  " nnoremap <leader>gp :Ggrep<Space>
+  " nnoremap <leader>gm :Gmove<Space>
+  " nnoremap <leader>gb :Gblame<CR>q
+  " nnoremap <leader>gco :Git checkout<Space>
+  " nnoremap <leader>gps :Dispatch! git push<CR>
+  " nnoremap <leader>gpl :Dispatch! git pull<CR>
 endif
 
 
@@ -151,13 +144,13 @@ endif
 " GINA
 " ####################################################################################
 if dein#tap('gina.vim') 
-  nnoremap <localleader>ga :Gina add %:p<CR>
-  nnoremap <nowait><localleader>gs :Gina status<CR>
-  nnoremap <localleader>gc :Gina commit -q -v<CR>
-  nnoremap <localleader>gco :Gina checkout<SPACE>
-  nnoremap <localleader>gph :Gina push<CR>
-  nnoremap <localleader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
-  nnoremap <localleader>gbr :Gina branch -a --opener=split<CR>
+  nnoremap <leader>ga :Gina add %:p<CR>
+  nnoremap <nowait><leader>gs :Gina status<CR>
+  nnoremap <leader>gc :Gina commit -q -v<CR>
+  nnoremap <leader>gco :Gina checkout<SPACE>
+  nnoremap <leader>gph :Gina push<CR>
+  nnoremap <leader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
+  nnoremap <leader>gbr :Gina branch -a --opener=split<CR>
 endif
 
 
@@ -174,21 +167,30 @@ endif
 " NERDTREE
 " ####################################################################################
 if dein#tap('nerdtree') 
-  nnoremap <silent> <localleader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
-  nnoremap <silent> <localleader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
-  nnoremap <silent> <localleader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
-  nnoremap <silent> <localleader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
+  nnoremap <silent> <leader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
+  nnoremap <silent> <leader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
+  nnoremap <silent> <leader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
+  nnoremap <silent> <leader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
 endif 
 
+" ####################################################################################
+" RSPEC
+" ####################################################################################
+" if dein#tap('vim-rspec') 
+"   nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+"   nnoremap <Leader>s :call RunNearestSpec()<CR>
+"   nnoremap <Leader>l :call RunLastSpec()<CR>
+"   nnoremap <Leader>a :call RunAllSpecs()<CR>
+" endif
 
 " ####################################################################################
 " SESSION
 " ####################################################################################
 if dein#tap('vim-session')
-  nnoremap <localleader>p :OpenSession<CR> 
-  nnoremap <localleader>u :OpenSession<CR> 
-  " nnoremap <localleader>ps :SaveSession
-  " nnoremap <localleader>ps :SaveSession
+  nnoremap <leader>p :OpenSession<CR> 
+  nnoremap <leader>u :OpenSession<CR> 
+  " nnoremap <leader>ps :SaveSession
+  " nnoremap <leader>ps :SaveSession
 endif
 
 
@@ -204,6 +206,6 @@ endif
 " TAGBAR
 " ####################################################################################
 if dein#tap('tagbar') 
-  nnoremap <silent> <localleader>t :TagbarToggle<CR>
+  nnoremap <silent> <leader>t :TagbarToggle<CR>
 endif 
 
