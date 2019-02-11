@@ -123,21 +123,21 @@ endif
 " FUGITIVE
 " ------------------------------------------------------------------------------------
 if dein#tap('vim-fugitive') 
-  " nnoremap <leader>ga :Git add %:p<CR><CR>
-  " nnoremap <nowait><leader>gs :Gstatus<CR>
-  " nnoremap <leader>gc :Gcommit -v -q<CR>
-  " nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-  " nnoremap <leader>gd :Gdiff<CR>
-  " nnoremap <leader>ge :Gedit<CR>
-  " nnoremap <leader>gr :Gread<CR>
-  " nnoremap <leader>gw :Gwrite<CR><CR>
-  " nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-  " nnoremap <leader>gp :Ggrep<Space>
-  " nnoremap <leader>gm :Gmove<Space>
-  " nnoremap <leader>gb :Gblame<CR>q
-  " nnoremap <leader>gco :Git checkout<Space>
-  " nnoremap <leader>gps :Dispatch! git push<CR>
-  " nnoremap <leader>gpl :Dispatch! git pull<CR>
+  nnoremap <leader>ga :Git add %:p<CR><CR>
+  nnoremap <nowait><leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit -v -q<CR>
+  nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+  nnoremap <leader>gd :Gdiff<CR>
+  nnoremap <leader>ge :Gedit<CR>
+  nnoremap <leader>gr :Gread<CR>
+  nnoremap <leader>gw :Gwrite<CR><CR>
+  nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <leader>gp :Ggrep<Space>
+  nnoremap <leader>gm :Gmove<Space>
+  nnoremap <leader>gb :Gblame<CR>q
+  nnoremap <leader>gco :Git checkout<Space>
+  nnoremap <leader>gps :Dispatch! git push<CR>
+  nnoremap <leader>gpl :Dispatch! git pull<CR>
 endif
 
 
@@ -149,7 +149,7 @@ if dein#tap('gina.vim')
   nnoremap <nowait><leader>gs :Gina status<CR>
   nnoremap <leader>gc :Gina commit -q -v<CR>
   nnoremap <leader>gco :Gina checkout<SPACE>
-  nnoremap <leader>gp :Gina push<CR>
+  nnoremap <silent> <leader>gp :Gina push<CR>
   nnoremap <leader>gpl :Gina pull<CR>
   nnoremap <leader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
   nnoremap <leader>gbr :Gina branch -a --opener=split<CR>
