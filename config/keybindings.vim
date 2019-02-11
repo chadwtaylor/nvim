@@ -27,7 +27,7 @@ let maplocalleader = "-"
 " Use ; for commands 
 nnoremap ; : 
 
-" Example of custom commands
+"push Example of custom commands
 " command! OpenChangedFiles :call OpenChangedFiles()
 " nnoremap ,ocf :OpenChangedFiles<CR>
 " command! ws :w<Bar>:so ~/.config/nvim/init.vim<CR>
@@ -65,30 +65,30 @@ map _ <C-W>-
 " ------------------------------------------------------------------------------------
 if dein#tap('dbext.vim')
 
-  command! Dbc :DBPromptForBufferParameters
-  command! Dbe :DBExecSQLUnderCursor
-  command! Dbe :DBExecVisualSQL
-  command! Dbet :DBSelectFromTable
-  command! Dbd :DBDescribeTable
-  command! Dblt :DBListTable
-  command! Dbtl :DBListTable
-  command! Dblv :DBListView
-  command! Dbvl :DBListView
-  command! Dbx :DBResultsClose
-  command! Dbh :DBHistory
+  command! Dc :DBPromptForBufferParameters
+  command! De :DBExecSQLUnderCursor
+  command! De :DBExecVisualSQL
+  command! Det :DBSelectFromTable
+  command! Dd :DBDescribeTable
+  command! Dlt :DBListTable
+  command! Dtl :DBListTable
+  command! Dlv :DBListView
+  command! Dvl :DBListView
+  command! Dx :DBResultsClose
+  command! Dh :DBHistory
 
-  nnoremap <leader>dbc :<C-u>DBPromptForBufferParameters<CR>
-  vnoremap <leader>r :<C-u>DBExecVisualSQL<CR>
-  nnoremap <leader>r :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
-  nnoremap <leader>dbet :<C-u>DBSelectFromTable<CR>
-  nnoremap <leader>dbd :<C-u>DBDescribeTable<CR>
-  nnoremap <leader>dbda :<C-u>DBDescribeTableAskName<CR>
-  nnoremap <leader>dblt :<C-u>DBListTable<CR>
-  nnoremap <leader>dbtl :<C-u>DBListTable<CR>
-  nnoremap <leader>dblv :<C-u>DBListView<CR>view_<CR>
-  nnoremap <leader>dbvl :<C-u>DBListView<CR>view_<CR>
-  nnoremap <leader>dbx :<C-u>DBResultsClose<CR>
-  nnoremap <leader>dbh :<C-u>DBHistory<CR>
+  nnoremap <leader>dc :<C-u>DBPromptForBufferParameters<CR>
+  vnoremap <leader>dr :<C-u>DBExecVisualSQL<CR>
+  nnoremap <leader>dr :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
+  nnoremap <leader>det :<C-u>DBSelectFromTable<CR>
+  nnoremap <leader>dd :<C-u>DBDescribeTable<CR>
+  nnoremap <leader>dda :<C-u>DBDescribeTableAskName<CR>
+  nnoremap <leader>dlt :<C-u>DBListTable<CR>
+  nnoremap <leader>dtl :<C-u>DBListTable<CR>
+  nnoremap <leader>dlv :<C-u>DBListView<CR>view_<CR>
+  nnoremap <leader>dvl :<C-u>DBListView<CR>view_<CR>
+  nnoremap <leader>dx :<C-u>DBResultsClose<CR>
+  nnoremap <leader>dh :<C-u>DBHistory<CR>
 
 endif
 
@@ -106,12 +106,13 @@ if dein#tap('denite.nvim')
   nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
   nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
+  nnoremap <silent><leader>f :<C-u>Denite buffer file/rec<CR>
+
   nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
-  nnoremap <silent><leader>sfr :<C-u>Denite file/rec<CR>
   nnoremap <silent><leader>sf :<C-u>Denite file<CR>
   nnoremap <nowait><silent><leader>sfb :<C-u>Denite buffer file<CR>
   nnoremap <silent><leader>sbf :<C-u>Denite buffer file<CR>
-  nnoremap <nowait><silent><leader>sb :<C-u>Denite buffer<CR>
+  nnoremap <nowait><silent><leader>b :<C-u>Denite buffer<CR>
   " nnoremap <silent><leader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
   " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
 
