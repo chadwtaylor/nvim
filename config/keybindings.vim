@@ -106,7 +106,7 @@ if dein#tap('denite.nvim')
   nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
   nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
-  nnoremap <silent><leader>f :<C-u>Denite buffer file/rec<CR>
+  nnoremap <silent><leader>f :<C-u>Denite file/rec<CR>
 
   nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
   nnoremap <silent><leader>sf :<C-u>Denite file<CR>

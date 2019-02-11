@@ -16,6 +16,9 @@ if dein#tap('lightline.vim')
     \         ],
     \   },
     \    'inactive': {
+    \      'left': [ 
+    \           [ 'readonly', 'filename', 'modified' ],
+    \         ],
     \      'right': [ 
     \           [ 'githealth', 'gitbranch'],
     \         ],
