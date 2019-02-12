@@ -12,21 +12,7 @@ if dein#load_state('~/.cache/dein')
 
 
     " Remove disabled plugins
-    " call dein#disable('vim-airline')
-    " call dein#disable('vim-airline-themes')
-    " call dein#disable('nerdtree')
-    " call dein#disable('denite-extra')
-    " call dein#disable('vim-session')
-    " call dein#disable('vim-misc')
-    " call dein#disable('vim-surround')
-    " call dein#disable('vim-polyglot')
-    " call dein#disable('vim-repeat')
-    " call dein#disable('slimux')
-    " call dein#disable('vinegar')
-    " call dein#disable('vim-nerdtree-tabs')
-    " call dein#disable('ranger')
-    " call dein#disable('bclose')
-    " call dein#disable('supertab')
+    " call dein#disable('dbext.vim')
     " call map(dein#check_clean(), "delete(v:val, 'rf')")
     " call dein#recache_runtimepath()
 
@@ -64,7 +50,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('joker1007/vim-ruby-heredoc-syntax') " color syntax for ruby between 'x = <<-SQL ... SQL'
     call dein#add('majutsushi/tagbar') " class functions
     call dein#add('lifepillar/pgsql.vim') " postgresql syntax
-    call dein#add('vim-scripts/dbext.vim') " db connection
+    call dein#add('chadwtaylor/dbext.vim') " db connection
+    " call dein#add('vim-scripts/dbext.vim') " db connection
     call dein#add('tpope/vim-rails') " rails-powered
     call dein#add('itchyny/lightline.vim') " status bar
     call dein#add('maximbaz/lightline-ale') " linter stuff for lightline

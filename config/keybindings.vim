@@ -37,7 +37,8 @@ nnoremap ; :
 noremap <leader>w :w<CR>
 noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
 noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
-noremap <leader>q :qa<CR>
+noremap <leader>qq :qa<CR>
+noremap <leader>q :q<CR>
 noremap <silent> <leader><space> :nohlsearch<CR>
 
 " ------------------------------------------------------------------------------------
@@ -70,6 +71,7 @@ if dein#tap('dbext.vim')
   command! De :DBExecVisualSQL
   command! Det :DBSelectFromTable
   command! Dd :DBDescribeTable
+  command! Dda :DBDescribeTableAskName
   command! Dlt :DBListTable
   command! Dtl :DBListTable
   command! Dlv :DBListView
@@ -80,7 +82,7 @@ if dein#tap('dbext.vim')
   nnoremap <leader>dc :<C-u>DBPromptForBufferParameters<CR>
   vnoremap <leader>dr :<C-u>DBExecVisualSQL<CR>
   nnoremap <leader>dr :<C-u>mark x<CR>:1,$DBExecRangeSQL<CR>:'x<CR>
-  nnoremap <leader>det :<C-u>DBSelectFromTable<CR>
+  nnoremap <leader>dst :<C-u>DBSelectFromTableAskName<CR>
   nnoremap <leader>dd :<C-u>DBDescribeTable<CR>
   nnoremap <leader>dda :<C-u>DBDescribeTableAskName<CR>
   nnoremap <leader>dlt :<C-u>DBListTable<CR>
@@ -107,17 +109,38 @@ if dein#tap('denite.nvim')
   nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
   nnoremap <silent><leader>f :<C-u>Denite file/rec<CR>
+  nnoremap <silent><leader>vf :<C-u>Denite file/rec -default-action=vsplit<CR>
+  nnoremap <silent><leader>sf :<C-u>Denite file/rec -default-action=split<CR>
+
+  nnoremap <nowait><silent><leader>b :<C-u>Denite buffer<CR>
+  nnoremap <nowait><silent><leader>vb :<C-u>Denite buffer -default-action=vsplit<CR>
+  nnoremap <nowait><silent><leader>sb :<C-u>Denite buffer -default-action=split<CR>
 
   nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
-  nnoremap <silent><leader>sf :<C-u>Denite file<CR>
-  nnoremap <nowait><silent><leader>sfb :<C-u>Denite buffer file<CR>
-  nnoremap <silent><leader>sbf :<C-u>Denite buffer file<CR>
-  nnoremap <nowait><silent><leader>b :<C-u>Denite buffer<CR>
   " nnoremap <silent><leader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
   " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
 
 endif
 
+" ------------------------------------------------------------------------------------
+" EASY MOTION
+" ------------------------------------------------------------------------------------
+if dein#tap('vim-easymotion') 
+  " <Leader>f{char} to move to {char}
+  map  <leader><leader>F <Plug>(easymotion-bd-f)
+  nmap <leader><leader>F <Plug>(easymotion-overwin-f)
+
+  " s{char}{char} to move to {char}{char}
+  nmap s <Plug>(easymotion-overwin-f2)
+
+  " Move to line
+  map <leader><leader>L <Plug>(easymotion-bd-jk)
+  nmap <leader><leader>L <Plug>(easymotion-overwin-line)
+
+  " Move to word
+  map  <leader><leader>W <Plug>(easymotion-bd-w)
+  nmap <leader><leader>W <Plug>(easymotion-overwin-w)
+endif
 
 " ------------------------------------------------------------------------------------
 " FUGITIVE
