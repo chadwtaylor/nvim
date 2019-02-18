@@ -48,7 +48,7 @@ if dein#tap('lightline.vim')
   function! MyGinaBranch()
     let branch = '' 
     let branch .= gina#component#repo#name()
-    let branch .= '/'
+    let branch .= ':'
     let branch .= gina#component#repo#branch()
     return branch
   endfunction

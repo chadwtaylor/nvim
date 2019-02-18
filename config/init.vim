@@ -56,7 +56,8 @@ set grepprg=rg\ --vimgrep
 
 " Set colors in terminal
 set termguicolors
-set background=dark
+let g:gruvbox_termcolors=16
+" set background=dark
 colorscheme gruvbox
 " colorscheme molokai 
 " colorscheme NeoSolarized

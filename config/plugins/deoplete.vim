@@ -3,31 +3,35 @@
 
 " deoplete options
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_smart_case = 1
 
 " disable autocomplete by default
-let b:deoplete_disable_auto_complete=1
-let g:deoplete_disable_auto_complete=1
+" let b:deoplete_disable_auto_complete=1
+" let g:deoplete_disable_auto_complete=1
 
-call deoplete#custom#source('LanguageClient',
-            \ 'min_pattern_length',
-            \ 2)
+" ------------------------------------------------------------------------
+" SOMEONE ELSE CONFIG
+" ------------------------------------------------------------------------
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
+" call deoplete#custom#source('LanguageClient',
+"             \ 'min_pattern_length',
+"             \ 2)
 
-" Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_',
-            \ 'disabled_syntaxes', ['Comment', 'String'])
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
 
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" " Disable the candidates in Comment/String syntaxes.
+" call deoplete#custom#source('_',
+"             \ 'disabled_syntaxes', ['Comment', 'String'])
 
-call deoplete#custom#option('sources', {
-            \ 'ruby': ['LanguageClient'],
-            \ 'vim': ['vim'],
-            \})
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" ignored sources
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['buffer', 'around']
+" call deoplete#custom#option('sources', {
+"             \ 'ruby': ['LanguageClient'],
+"             \ 'vim': ['vim'],
+"             \})
+
+" " ignored sources
+" let g:deoplete#ignore_sources = {}
+" let g:deoplete#ignore_sources._ = ['buffer', 'around']

@@ -62,6 +62,13 @@ map _ <C-W>-
 
 
 " ------------------------------------------------------------------------------------
+" DEOPLETE
+" ------------------------------------------------------------------------------------
+if dein#tap('deoplete.nvim')
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+endif 
+
+" ------------------------------------------------------------------------------------
 " DBEXT - database stuff
 " ------------------------------------------------------------------------------------
 if dein#tap('dbext.vim')
@@ -108,7 +115,7 @@ if dein#tap('denite.nvim')
   nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
   nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
 
-  nnoremap <silent><leader>f :<C-u>Denite file/rec<CR>
+  nnoremap <nowait><silent><leader>f :<C-u>Denite file/rec<CR>
   nnoremap <silent><leader>vf :<C-u>Denite file/rec -default-action=vsplit<CR>
   nnoremap <silent><leader>sf :<C-u>Denite file/rec -default-action=split<CR>
 
@@ -172,10 +179,12 @@ if dein#tap('gina.vim')
   nnoremap <nowait><leader>gs :Gina status<CR>
   nnoremap <leader>gc :Gina commit -q -v<CR>
   nnoremap <leader>gco :Gina checkout<SPACE>
-  nnoremap <silent> <leader>gp :Gina push<CR>
+  nnoremap <leader>gp :Gina push<CR>
   nnoremap <leader>gpl :Gina pull<CR>
   nnoremap <leader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
   nnoremap <leader>gbr :Gina branch -a --opener=split<CR>
+  nnoremap <leader>gfhs :<C-u>Gina flow hotfix start<SPACE>
+  nnoremap <leader>gfhf :<C-u>Gina flow hotfix finish -n<SPACE>
 endif
 
 
@@ -183,8 +192,8 @@ endif
 " JUNKFILE
 " ------------------------------------------------------------------------------------
 if dein#tap('junkfile.vim') 
-  nnoremap <leader>jf :JunkfileOpen<CR>
-  nnoremap <leader>jfsql :JunkfileOpen<CR>sql<CR>
+  nnoremap <leader>n :JunkfileOpen<CR>
+  nnoremap <leader>nsql :JunkfileOpen<CR>sql<CR>
 endif
 
 
