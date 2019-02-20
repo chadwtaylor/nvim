@@ -22,6 +22,9 @@ set ruler
 set cursorline " highlights current line
 set nowrap
 
+" Automatically reload file when file changes
+set autoread
+
 set scrolloff=10
 
 " Autoindentation
@@ -93,10 +96,11 @@ set sessionoptions-=help
 " set sessionoptions-=buffers
 set sessionoptions-=options
 
-" for ES6 transpiling
-augroup MyTerm
+" ES6-to-JS Transpiling
+augroup es6_transpiling
   autocmd!
-  autocmd BufWinEnter,WinEnter term://* startinsert
-  " autocmd BufLeave term://* stopinsert
+  " treat es6 files like javascript files
+  autocmd BufNewFile,BufRead *.es6 set filetype=javascript
+  autocmd BufWritePost,FileWritePost *.es6 :silent !babel <afile> -o <afile>:r.js
 augroup END
 

@@ -61,6 +61,19 @@ map + <C-W>+
 map _ <C-W>-
 
 
+
+" ------------------------------------------------------------------------------------
+" ACK
+" ------------------------------------------------------------------------------------
+if dein#tap('ack.vim') 
+  if executable('ag') 
+    let g:ackprg = 'ag --vimgrep'
+    let g:ack_autoclose = 1
+    let g:ackpreview = 1
+  endif
+endif
+
+
 " ------------------------------------------------------------------------------------
 " DEOPLETE
 " ------------------------------------------------------------------------------------
@@ -112,8 +125,8 @@ if dein#tap('denite.nvim')
   " nnoremap <space>v :Denite file_rec -default-action=split<CR>
 
   " Grep stuff
-  nnoremap <leader>/ :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
-  nnoremap <leader>// :DeniteCursorWord grep -auto-preview -buffer-name=search -no-empty -mode=normal<CR>
+  nnoremap <nowait><leader>// :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
+  nnoremap <nowait><leader>/w :DeniteCursorWord grep -auto-preview -mode=normal<CR>
 
   nnoremap <nowait><silent><leader>f :<C-u>Denite file/rec<CR>
   nnoremap <silent><leader>vf :<C-u>Denite file/rec -default-action=vsplit<CR>

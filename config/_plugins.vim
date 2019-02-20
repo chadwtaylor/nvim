@@ -10,14 +10,11 @@ if dein#load_state('~/.cache/dein')
 
     call dein#begin('~/.cache/dein')
 
-
     " Remove disabled plugins
     " call dein#disable('dbext.vim')
     " call map(dein#check_clean(), "delete(v:val, 'rf')")
     " call dein#recache_runtimepath()
 
-    " 
-    
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim') " plugin management
     call dein#add('Shougo/deoplete.nvim') " completer
     call dein#add('Shougo/denite.nvim') " file, grep and buffer management
@@ -58,6 +55,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-endwise') " adding end stuff to blocks
     call dein#add('tpope/vim-endwise') " adding end stuff to blocks
     call dein#add('lambdalisue/gina.vim') " git
+    call dein#add('mhinz/vim-grepper') " grepping with the_silver_searcher
+    call dein#add('mileszs/ack.vim') " grepping with the_silver_searcher
+    call dein#add('mileszs/ack.vim') " grepping with the_silver_searcher
 
     " call dein#add('powerline/powerline-fonts')
     " call dein#add('nathanaelkane/vim-indent-guides') " visual indentation guides
