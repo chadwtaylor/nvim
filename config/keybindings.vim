@@ -40,6 +40,9 @@ noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
 noremap <leader>qq :qa<CR>
 noremap <leader>q :q<CR>
 noremap <silent> <leader><space> :nohlsearch<CR>
+noremap <leader>r <C-L>
+noremap <leader>tn :tabnew<CR>
+noremap <leader>nt :tabnew<CR>
 
 " ------------------------------------------------------------------------------------
 " WINDOW MANAGEMENT

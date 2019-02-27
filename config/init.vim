@@ -55,7 +55,10 @@ set number
 set relativenumber
 
 " use ripgreg instead of grep
-set grepprg=rg\ --vimgrep
+" set grepprg=rg\ --vimgrep
+
+" use ag (silver searcher) instead of grep
+set grepprg=ag\ --vimgrep
 
 " Set colors in terminal
 set termguicolors
