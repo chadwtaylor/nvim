@@ -24,8 +24,8 @@
 let mapleader = ","
 let maplocalleader = "-"
 
-" Use ; for commands 
-nnoremap ; : 
+" Use ; for commands
+nnoremap ; :
 
 "push Example of custom commands
 " command! OpenChangedFiles :call OpenChangedFiles()
@@ -35,29 +35,32 @@ nnoremap ; :
 
 " MISC STUFF
 noremap <leader>w :w<CR>
-noremap <leader>sor :so ~/.config/nvim/init.vim<CR>
+noremap <leader>ref :so ~/.config/nvim/init.vim<CR>
 noremap <leader>ws :w<CR>:so ~/.config/nvim/init.vim<CR>
 noremap <leader>qq :qa<CR>
 noremap <leader>q :q<CR>
 noremap <silent> <leader><space> :nohlsearch<CR>
 noremap <leader>r <C-L>
 noremap <leader>tn :tabnew<CR>
-noremap <leader>nt :tabnew<CR>
+noremap <leader>tc :tabc<CR>
+
+" DEIN PLUGIN
+nnoremap <leader>pu :<C-u>call dein#update()<CR>
 
 " ------------------------------------------------------------------------------------
 " WINDOW MANAGEMENT
 " ------------------------------------------------------------------------------------
 nnoremap <leader>< <C-W><C-H> " move left
-nnoremap <leader>h <C-W><C-H> 
+nnoremap <leader>h <C-W><C-H>
 
 nnoremap <leader>> <C-W><C-L> " move right
-nnoremap <leader>l <C-W><C-L> 
+nnoremap <leader>l <C-W><C-L>
 
 nnoremap <leader>^ <C-W><C-K> " move up
-nnoremap <leader>k <C-W><C-K> 
+nnoremap <leader>k <C-W><C-K>
 
 nnoremap <leader>_ <C-W><C-J> " move down
-nnoremap <leader>j <C-W><C-J> 
+nnoremap <leader>j <C-W><C-J>
 
 nnoremap <leader>w= <C-W>=
 map + <C-W>+
@@ -68,21 +71,43 @@ map _ <C-W>-
 " ------------------------------------------------------------------------------------
 " ACK
 " ------------------------------------------------------------------------------------
-if dein#tap('ack.vim') 
-  if executable('ag') 
+if dein#tap('ack.vim')
+  if executable('ag')
     let g:ackprg = 'ag --vimgrep'
     let g:ack_autoclose = 1
     let g:ackpreview = 1
   endif
 endif
 
+" ------------------------------------------------------------------------------------
+" COC
+" ------------------------------------------------------------------------------------
+if dein#tap('coc.nvim')
+
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+  " Grep stuff
+  nnoremap <nowait><leader>// :<C-u>CocList -A -I grep<CR>
+
+  nnoremap <nowait><silent><leader>ff :<C-u>CocList -N files<CR>
+  nnoremap <nowait><silent><leader>fr :<C-u>CocList -N mru<CR>
+  nnoremap <nowait><silent><leader>fp :<C-u>CocList -N mru<CR><C-u>2<CR>
+  nnoremap <silent><leader>fc :<C-u>CocListResume<CR>
+  nnoremap <silent><leader>fo :<C-u>CocList -N outline<CR>
+
+  command! -nargs=0 Fix :call CocAction('format')
+
+endif
 
 " ------------------------------------------------------------------------------------
 " DEOPLETE
 " ------------------------------------------------------------------------------------
 if dein#tap('deoplete.nvim')
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-endif 
+endif
 
 " ------------------------------------------------------------------------------------
 " DBEXT - database stuff
@@ -121,34 +146,33 @@ endif
 " ------------------------------------------------------------------------------------
 " DENITE
 " ------------------------------------------------------------------------------------
-if dein#tap('denite.nvim') 
+if dein#tap('denite.nvim')
 
-  nnoremap <leader>pu :<C-u>call dein-update()<CR>
+  " " Grep stuff
+  " nnoremap <nowait><leader>// :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
+  " nnoremap <nowait><leader>/w :DeniteCursorWord grep -auto-preview -mode=normal<CR>
 
-  " nnoremap <space>v :Denite file_rec -default-action=split<CR>
+  " " nnoremap <nowait><leader>x :<C-u>Denite buffer -split=floating -winrow=1<CR>
+  " nnoremap <nowait><silent><leader>x :<C-u>Denite buffer -split=floating -winrow=1<CR>
 
-  " Grep stuff
-  nnoremap <nowait><leader>// :<C-u>Denite grep:. -auto-preview -mode=normal<CR>
-  nnoremap <nowait><leader>/w :DeniteCursorWord grep -auto-preview -mode=normal<CR>
+  " nnoremap <nowait><silent><leader>f :<C-u>Denite file/rec<CR>
+  " nnoremap <silent><leader>vf :<C-u>Denite file/rec -default-action=vsplit<CR>
+  " nnoremap <silent><leader>sf :<C-u>Denite file/rec -default-action=split<CR>
 
-  nnoremap <nowait><silent><leader>f :<C-u>Denite file/rec<CR>
-  nnoremap <silent><leader>vf :<C-u>Denite file/rec -default-action=vsplit<CR>
-  nnoremap <silent><leader>sf :<C-u>Denite file/rec -default-action=split<CR>
+  " nnoremap <nowait><silent><leader>b :<C-u>Denite buffer<CR>
+  " nnoremap <nowait><silent><leader>vb :<C-u>Denite buffer -default-action=vsplit<CR>
+  " nnoremap <nowait><silent><leader>sb :<C-u>Denite buffer -default-action=split<CR>
 
-  nnoremap <nowait><silent><leader>b :<C-u>Denite buffer<CR>
-  nnoremap <nowait><silent><leader>vb :<C-u>Denite buffer -default-action=vsplit<CR>
-  nnoremap <nowait><silent><leader>sb :<C-u>Denite buffer -default-action=split<CR>
-
-  nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
-  " nnoremap <silent><leader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
-  " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
+  " nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh -mode=normal<CR>
+  " " nnoremap <silent><leader>* :<C-u>DeniteCursorWord line -buffer-name=search -auto-highlight -mode=normal<CR>
+  " " nnoremap <silent> <Leader>gf :DeniteCursorWord file/rec<CR>
 
 endif
 
 " ------------------------------------------------------------------------------------
 " EASY MOTION
 " ------------------------------------------------------------------------------------
-if dein#tap('vim-easymotion') 
+if dein#tap('vim-easymotion')
   " <Leader>f{char} to move to {char}
   map  <leader><leader>F <Plug>(easymotion-bd-f)
   nmap <leader><leader>F <Plug>(easymotion-overwin-f)
@@ -168,46 +192,46 @@ endif
 " ------------------------------------------------------------------------------------
 " FUGITIVE
 " ------------------------------------------------------------------------------------
-" if dein#tap('vim-fugitive') 
-"   nnoremap <leader>ga :Git add %:p<CR><CR>
-"   nnoremap <nowait><leader>gs :Gstatus<CR>
-"   nnoremap <leader>gc :Gcommit -v -q<CR>
-"   nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-"   nnoremap <leader>gd :Gdiff<CR>
-"   nnoremap <leader>ge :Gedit<CR>
-"   nnoremap <leader>gr :Gread<CR>
-"   nnoremap <leader>gw :Gwrite<CR><CR>
-"   nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-"   nnoremap <leader>gp :Ggrep<Space>
-"   nnoremap <leader>gm :Gmove<Space>
-"   nnoremap <leader>gb :Gblame<CR>q
-"   nnoremap <leader>gco :Git checkout<Space>
-"   nnoremap <leader>gps :Dispatch! git push<CR>
-"   nnoremap <leader>gpl :Dispatch! git pull<CR>
-" endif
+if dein#tap('vim-fugitive')
+  nnoremap <leader>ga :Git add %:p<CR><CR>
+  nnoremap <nowait><leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit -v -q<CR>
+  nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+  nnoremap <leader>gd :Gdiff<CR>
+  nnoremap <leader>ge :Gedit<CR>
+  nnoremap <leader>gr :Gread<CR>
+  nnoremap <leader>gw :Gwrite<CR><CR>
+  nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <leader>gp :Gpush<Space>
+  nnoremap <leader>gm :Gmove<Space>
+  nnoremap <leader>gb :Gblame<CR>q
+  nnoremap <leader>gco :Git checkout<Space>
+  nnoremap <leader>gps :Dispatch! git push<CR>
+  nnoremap <leader>gpl :Dispatch! git pull<CR>
+endif
 
 
 " ------------------------------------------------------------------------------------
 " GINA
 " ------------------------------------------------------------------------------------
-if dein#tap('gina.vim') 
-  nnoremap <leader>ga :Gina add %:p<CR>
-  nnoremap <nowait><leader>gs :Gina status<CR>
-  nnoremap <leader>gc :Gina commit -q -v<CR>
-  nnoremap <leader>gco :Gina checkout<SPACE>
-  nnoremap <leader>gp :Gina push<CR>
-  nnoremap <leader>gpl :Gina pull<CR>
-  nnoremap <leader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
-  nnoremap <leader>gbr :Gina branch -a --opener=split<CR>
-  nnoremap <leader>gfhs :<C-u>Gina flow hotfix start<SPACE>
-  nnoremap <leader>gfhf :<C-u>Gina flow hotfix finish -n<SPACE>
+if dein#tap('gina.vim')
+  " nnoremap <leader>ga :Gina add %:p<CR>
+  " nnoremap <nowait><leader>gs :Gina status<CR>
+  " nnoremap <leader>gc :Gina commit -q -v<CR>
+  " nnoremap <leader>gco :Gina checkout<SPACE>
+  " nnoremap <leader>gp :Gina push<CR>
+  " nnoremap <leader>gpl :Gina pull<CR>
+  " nnoremap <leader>gb ::Gina blame --opener=tabedit --format="%au - %su%=%ti%ma%in" --width=75<CR>
+  " nnoremap <leader>gbr :Gina branch -a --opener=split<CR>
+  " nnoremap <leader>gfhs :<C-u>Gina flow hotfix start<SPACE>
+  " nnoremap <leader>gfhf :<C-u>Gina flow hotfix finish -n<SPACE>
 endif
 
 
 " ------------------------------------------------------------------------------------
 " JUNKFILE
 " ------------------------------------------------------------------------------------
-if dein#tap('junkfile.vim') 
+if dein#tap('junkfile.vim')
   nnoremap <leader>n :JunkfileOpen<CR>
   nnoremap <leader>nsql :JunkfileOpen<CR>sql<CR>
 endif
@@ -216,17 +240,19 @@ endif
 " ------------------------------------------------------------------------------------
 " NERDTREE
 " ------------------------------------------------------------------------------------
-if dein#tap('nerdtree') 
+if dein#tap('nerdtree')
+
   nnoremap <silent> <leader>e :<C-u>let NERDTreeWinPos=0 \| NERDTreeToggle<CR>
   nnoremap <silent> <leader>a :<C-u>let NERDTreeWinPos=0 \| NERDTreeFind<CR>
   nnoremap <silent> <leader>E :<C-u>let NERDTreeWinPos=1 \| NERDTreeToggle<CR>
   nnoremap <silent> <leader>A :<C-u>let NERDTreeWinPos=1 \| NERDTreeFind<CR>
-endif 
+
+endif
 
 " ------------------------------------------------------------------------------------
 " RSPEC
 " ------------------------------------------------------------------------------------
-" if dein#tap('vim-rspec') 
+" if dein#tap('vim-rspec')
 "   nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 "   nnoremap <Leader>s :call RunNearestSpec()<CR>
 "   nnoremap <Leader>l :call RunLastSpec()<CR>
@@ -235,10 +261,11 @@ endif
 
 " ------------------------------------------------------------------------------------
 " SESSION
+" also check out 'session management' in init.vim
 " ------------------------------------------------------------------------------------
 if dein#tap('vim-session')
-  nnoremap <leader>p :OpenSession<CR> 
-  nnoremap <leader>u :OpenSession<CR> 
+  nnoremap <leader>p :OpenSession<CR>
+  nnoremap <leader>u :OpenSession<CR>
   " nnoremap <leader>ps :SaveSession
   " nnoremap <leader>ps :SaveSession
 endif
@@ -247,15 +274,15 @@ endif
 " ------------------------------------------------------------------------------------
 " STARTIFY
 " ------------------------------------------------------------------------------------
-if dein#tap('vim-startify') 
+if dein#tap('vim-startify')
   nnoremap <silent> <leader>sy :Startify<CR>
-endif 
+endif
 
 
 " ------------------------------------------------------------------------------------
 " TAGBAR
 " ------------------------------------------------------------------------------------
-if dein#tap('tagbar') 
+if dein#tap('tagbar')
   nnoremap <silent> <leader>t :TagbarToggle<CR>
-endif 
+endif
 

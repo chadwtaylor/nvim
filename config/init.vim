@@ -28,7 +28,8 @@ set autoread
 set scrolloff=10
 
 " Autoindentation
-set ai
+" set ai
+set smartindent
 filetype indent plugin on
 
 " Copies using system clipboard
@@ -59,13 +60,14 @@ set relativenumber
 
 " use ag (silver searcher) instead of grep
 set grepprg=ag\ --vimgrep
+set rtp+=/usr/local/opt/fzf
 
 " Set colors in terminal
 set termguicolors
 let g:gruvbox_termcolors=16
 " set background=dark
 colorscheme gruvbox
-" colorscheme molokai 
+" colorscheme molokai
 " colorscheme NeoSolarized
 
 " close vim if only window left is nerdtree
@@ -95,9 +97,14 @@ let g:vim_markdown_math = 0
 " session management
 let g:session_directory = '~/.nvim/sessions'
 let g:session_autosave = 'yes'
+set sessionoptions-=blank
 set sessionoptions-=help
-" set sessionoptions-=buffers
 set sessionoptions-=options
+" autocmd BufEnter NERD_tree_* nmap d<CR> <CR> :NERDTreeToggle <CR>
+" autocmd BufLeave NERD_tree_* unmap d<CR>
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" set sessionoptions-=buffers
+
 
 " ES6-to-JS Transpiling
 augroup es6_transpiling
@@ -107,3 +114,18 @@ augroup es6_transpiling
   autocmd BufWritePost,FileWritePost *.es6 :silent !babel <afile> -o <afile>:r.js
 augroup END
 
+" --------------------------------------------------------------------------------
+" FIX TRAILING WHITESPACE ON SAVE
+" --------------------------------------------------------------------------------
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+augroup AutoFixTrailingWhitespace
+  autocmd!
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup END
+" --------------------------------------------------------------------------------

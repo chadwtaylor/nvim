@@ -39,26 +39,25 @@ if dein#tap('lightline.vim')
     \         ],
     \      'right': [
     \           [ ],
-    \           [ 'lineinfo', 'githealth', 'gitbranch'],
+    \           [ 'githealth', 'gitbranch'],
     \           [ 'linter_checking', 'linter_errors', 'linter_warnings', 'liter_ok' ],
     \         ],
     \   },
-    \   'inactive': {
-    \     'left': [
-    \       [ 'readonly', 'filename', 'modified' ],
-    \     ],
-    \     'right': [
-    \       [ 'gitbranch' ],
-    \     ],
+    \    'inactive': {
+    \      'left': [
+    \           [ 'readonly', 'filename', 'modified' ],
+    \         ],
+    \      'right': [
+    \           [ 'githealth', 'gitbranch'],
+    \         ],
     \   },
     \   'component': {
     \     'tagbar': '%{tagbar#currenttag("%s","")}',
     \   },
     \   'component_function': {
-    \     'gitbranch': 'MyFugitiveBranch',
-    \     'githealth': 'MySignify',
+    \     'gitbranchx': 'MyGinaBranch',
+    \     'githealthx': 'MyGinaHealth',
     \     'linter': 'MyALEStatus',
-    \     'filename': 'LightlineFilename',
     \   },
     \   'component_expand': {
     \     'linter_checking': 'MyALEChecking',
@@ -74,18 +73,7 @@ if dein#tap('lightline.vim')
     \   },
     \ }
 
-  function! LightlineFilename()
-    let root = fnamemodify(get(b:, 'git_dir'), ':h')
-    let path = expand('%:p')
-    if path[:len(root)-1] ==# root
-      return path[len(root)+1:]
-    endif
-    return expand('%')
-  endfunction
 
-  function! MyFugitiveBranch()
-    return fugitive#head()
-  endfunction
 
   function! MyGinaBranch()
     let branch = ''
@@ -133,6 +121,8 @@ if dein#tap('lightline.vim')
       let status = printf('%s', status[:-2])
     endif
 
+    " let status = gina#component#status#preset('fancy')
+    " return 'showGinaStatus'
     return status
   endfunction
 

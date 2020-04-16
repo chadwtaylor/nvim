@@ -10,6 +10,8 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [
             \ '~/Dropbox/web_projects/linguabee/api',
+            \ '~/Dropbox/web_projects/linguabee/skep',
+            \ '~/Dropbox/web_projects/linguabee/nectar',
             \ '~/Dropbox/web_projects/linguabee/hive',
             \ '~/Dropbox/web_projects/linguabee/webapp',
             \ '~/.config/nvim/config',

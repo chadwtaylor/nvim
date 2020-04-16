@@ -1,0 +1,7 @@
+{
+  "suggest.triggerAfterInsertEnter": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.useBundler": false,
+  "solargraph.completetion": true
+}
